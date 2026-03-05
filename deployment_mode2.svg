@@ -64,198 +64,229 @@
   <g transform="translate(0, 0)">
     <rect width="1200" height="70" fill="url(#headerGrad)"/>
     <text x="600" y="30" text-anchor="middle" font-size="22" fill="white" font-weight="bold">
-      5.5摄像头方案：头尾安装模式（两侧无空间）
+      5.5摄像头方案：头尾安装模式（两侧无空间）- 双20尺纵向排列
     </text>
     <text x="600" y="52" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.9)">
-      （两侧无安装空间时的替代方案：C3/C4从前后方拍摄，C7提供门端细节）
+      两个20尺集装箱前后连接（前箱+后箱），总长12m，C3/C4从前后方拍摄
     </text>
   </g>
   
-  <!-- 入口区域标注 -->
-  <g transform="translate(50, 350)">
-    <text x="0" y="0" text-anchor="middle" font-size="14" fill="#e53e3e" font-weight="bold" transform="rotate(-90)">车辆入口方向 →</text>
-  </g>
-  
-  <!-- 龙门架/顶部结构 - 道闸前 -->
-  <g transform="translate(150, 100)">
-    <rect x="0" y="0" width="300" height="60" rx="8" fill="url(#topCameraGrad)" stroke="#00f2fe" stroke-width="2" filter="url(#shadow)"/>
-    <text x="150" y="25" text-anchor="middle" font-size="14" fill="white" font-weight="bold">龙门架A - 道闸前</text>
-    <text x="150" y="45" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.9)">高度 8-10m</text>
+  <!-- ===== 俯视图区域 ===== -->
+  <g transform="translate(350, 100)">
+    <text x="250" y="-10" text-anchor="middle" font-size="14" fill="#4a5568" font-weight="bold">【俯视图】车辆与相机位置布局</text>
     
-    <!-- 顶部相机 C5 -->
-    <g transform="translate(150, 30)">
-      <circle cx="0" cy="0" r="22" fill="#667eea" stroke="white" stroke-width="2"/>
-      <text x="0" y="5" text-anchor="middle" font-size="12" fill="white" font-weight="bold">C5</text>
-      <!-- 拍摄方向指示 -->
-      <path d="M 0,22 L 0,50" stroke="#667eea" stroke-width="2" stroke-dasharray="4,4"/>
-      <polygon points="-5,50 0,60 5,50" fill="#667eea"/>
+    <!-- 车道区域背景 -->
+    <rect x="0" y="0" width="500" height="600" fill="#f0f2f5" stroke="#cbd5e0" stroke-width="2" rx="5"/>
+    <text x="250" y="-25" text-anchor="middle" font-size="12" fill="#718096">车道宽度 3.5m</text>
+    
+    <!-- 车道中心虚线 -->
+    <line x1="250" y1="0" x2="250" y2="600" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="15,8"/>
+    
+    <!-- ===== 龙门架A - 入口侧（道闸前）===== -->
+    <rect x="-20" y="20" width="540" height="50" rx="8" fill="url(#topCameraGrad)" stroke="#00f2fe" stroke-width="2" filter="url(#shadow)"/>
+    <text x="250" y="45" text-anchor="middle" font-size="13" fill="white" font-weight="bold">龙门架A - 道闸前 (8-10m)</text>
+    <text x="250" y="62" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.9)">顶部相机C5覆盖车头+前箱</text>
+    
+    <!-- C5相机位置 -->
+    <g transform="translate(180, 45)">
+      <circle cx="0" cy="0" r="18" fill="#667eea" stroke="white" stroke-width="2"/>
+      <text x="0" y="5" text-anchor="middle" font-size="11" fill="white" font-weight="bold">C5</text>
     </g>
-  </g>
-  
-  <!-- 龙门架/顶部结构 - 道闸后 -->
-  <g transform="translate(750, 100)">
-    <rect x="0" y="0" width="300" height="60" rx="8" fill="url(#topCameraGrad)" stroke="#00f2fe" stroke-width="2" filter="url(#shadow)"/>
-    <text x="150" y="25" text-anchor="middle" font-size="14" fill="white" font-weight="bold">龙门架B - 道闸后</text>
-    <text x="150" y="45" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.9)">高度 8-10m</text>
     
-    <!-- 顶部相机 C6 -->
-    <g transform="translate(150, 30)">
-      <circle cx="0" cy="0" r="22" fill="#764ba2" stroke="white" stroke-width="2"/>
-      <text x="0" y="5" text-anchor="middle" font-size="12" fill="white" font-weight="bold">C6</text>
-      <!-- 拍摄方向指示 -->
-      <path d="M 0,22 L 0,50" stroke="#764ba2" stroke-width="2" stroke-dasharray="4,4"/>
-      <polygon points="-5,50 0,60 5,50" fill="#764ba2"/>
+    <!-- ===== 龙门架B - 出口侧（道闸后）===== -->
+    <rect x="-20" y="530" width="540" height="50" rx="8" fill="url(#topCameraGrad)" stroke="#00f2fe" stroke-width="2" filter="url(#shadow)"/>
+    <text x="250" y="555" text-anchor="middle" font-size="13" fill="white" font-weight="bold">龙门架B - 道闸后 (8-10m)</text>
+    <text x="250" y="572" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.9)">顶部相机C6覆盖后箱+车尾</text>
+    
+    <!-- C6相机位置 -->
+    <g transform="translate(180, 555)">
+      <circle cx="0" cy="0" r="18" fill="#764ba2" stroke="white" stroke-width="2"/>
+      <text x="0" y="5" text-anchor="middle" font-size="11" fill="white" font-weight="bold">C6</text>
     </g>
-  </g>
-  
-  <!-- 连接龙门架的横线（表示车道上方） -->
-  <line x1="300" y1="130" x2="900" y2="130" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="10,5"/>
-  
-  <!-- 道闸位置标注 - 道闸前 -->
-  <g transform="translate(300, 200)">
-    <rect x="-60" y="0" width="120" height="40" rx="6" fill="url(#gateGrad)" filter="url(#shadow)"/>
-    <text x="0" y="25" text-anchor="middle" font-size="14" fill="white" font-weight="bold">道闸前</text>
-  </g>
-  
-  <!-- 道闸位置标注 - 道闸后 -->
-  <g transform="translate(900, 200)">
-    <rect x="-60" y="0" width="120" height="40" rx="6" fill="url(#gateGrad)" filter="url(#shadow)"/>
-    <text x="0" y="25" text-anchor="middle" font-size="14" fill="white" font-weight="bold">道闸后</text>
-  </g>
-  
-  <!-- 车道区域 -->
-  <g transform="translate(200, 260)">
-    <!-- 车道背景 -->
-    <rect x="0" y="0" width="800" height="320" fill="#f0f2f5" stroke="#cbd5e0" stroke-width="2" rx="5"/>
-    <text x="400" y="-15" text-anchor="middle" font-size="13" fill="#718096">车道宽度 3.5m</text>
     
-    <!-- 车道中心线 -->
-    <line x1="0" y1="160" x2="800" y2="160" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="20,10"/>
+    <!-- ===== 道闸位置 ===== -->
+    <g transform="translate(100, 150)">
+      <rect x="0" y="0" width="300" height="35" rx="6" fill="url(#gateGrad)" filter="url(#shadow)"/>
+      <text x="150" y="23" text-anchor="middle" font-size="13" fill="white" font-weight="bold">道闸位置</text>
+    </g>
     
-    <!-- 左侧集装箱（20尺）- 前半部分 -->
-    <g transform="translate(80, 40)">
-      <rect x="0" y="0" width="220" height="120" rx="6" fill="url(#dualBoxGrad)" filter="url(#shadow)" opacity="0.95"/>
-      <text x="110" y="40" text-anchor="middle" font-size="14" fill="#1a535c" font-weight="bold">前半部分</text>
-      <text x="110" y="65" text-anchor="middle" font-size="11" fill="#1a535c">车头+前半箱体</text>
-      <text x="110" y="85" text-anchor="middle" font-size="10" fill="#1a535c">C3/C5/C7覆盖区域</text>
+    <!-- ===== 双20尺集装箱 - 纵向排列 ===== -->
+    <!-- 前箱（20尺） -->
+    <g transform="translate(80, 190)">
+      <rect x="0" y="0" width="140" height="200" rx="6" fill="url(#dualBoxGrad)" filter="url(#shadow)" opacity="0.95" stroke="#2d8a4e" stroke-width="2"/>
+      <text x="70" y="60" text-anchor="middle" font-size="14" fill="#1a535c" font-weight="bold">前箱</text>
+      <text x="70" y="85" text-anchor="middle" font-size="11" fill="#1a535c">20尺集装箱</text>
+      <text x="70" y="105" text-anchor="middle" font-size="10" fill="#1a535c">车头侧</text>
+      <text x="70" y="160" text-anchor="middle" font-size="9" fill="#1a535c">C3/C5/C7覆盖</text>
       
-      <!-- 箱号区域高亮 -->
-      <rect x="150" y="15" width="55" height="35" rx="4" fill="rgba(255,255,255,0.4)" stroke="#38f9d7" stroke-width="2"/>
-      <text x="177" y="37" text-anchor="middle" font-size="9" fill="#1a535c" font-weight="bold">箱号区</text>
+      <!-- 箱号区 -->
+      <rect x="35" y="120" width="70" height="25" rx="4" fill="rgba(255,255,255,0.5)" stroke="#38f9d7" stroke-width="1.5"/>
+      <text x="70" y="137" text-anchor="middle" font-size="9" fill="#1a535c" font-weight="bold">箱号区</text>
       
-      <!-- 门端ISO码区域 -->
-      <rect x="15" y="70" width="50" height="30" rx="4" fill="rgba(255,154,158,0.3)" stroke="#ff6b6b" stroke-width="2"/>
-      <text x="40" y="90" text-anchor="middle" font-size="8" fill="#c92a2a" font-weight="bold">门端区</text>
+      <!-- 门端区（连接处） -->
+      <rect x="30" y="170" width="80" height="25" rx="4" fill="rgba(255,154,158,0.4)" stroke="#ff6b6b" stroke-width="1.5"/>
+      <text x="70" y="187" text-anchor="middle" font-size="8" fill="#c92a2a" font-weight="bold">门端连接处</text>
     </g>
     
-    <!-- 右侧集装箱（20尺）- 后半部分 -->
-    <g transform="translate(500, 40)">
-      <rect x="0" y="0" width="220" height="120" rx="6" fill="url(#dualBoxGrad)" filter="url(#shadow)" opacity="0.95"/>
-      <text x="110" y="40" text-anchor="middle" font-size="14" fill="#1a535c" font-weight="bold">后半部分</text>
-      <text x="110" y="65" text-anchor="middle" font-size="11" fill="#1a535c">车尾+后半箱体</text>
-      <text x="110" y="85" text-anchor="middle" font-size="10" fill="#1a535c">C4/C6覆盖区域</text>
+    <!-- 后箱（20尺） -->
+    <g transform="translate(80, 395)">
+      <rect x="0" y="0" width="140" height="120" rx="6" fill="url(#dualBoxGrad)" filter="url(#shadow)" opacity="0.95" stroke="#2d8a4e" stroke-width="2"/>
+      <text x="70" y="35" text-anchor="middle" font-size="14" fill="#1a535c" font-weight="bold">后箱</text>
+      <text x="70" y="60" text-anchor="middle" font-size="11" fill="#1a535c">20尺集装箱</text>
+      <text x="70" y="80" text-anchor="middle" font-size="10" fill="#1a535c">车尾侧</text>
+      <text x="70" y="105" text-anchor="middle" font-size="9" fill="#1a535c">C4/C6覆盖</text>
       
-      <!-- 箱号区域高亮 -->
-      <rect x="15" y="15" width="55" height="35" rx="4" fill="rgba(255,255,255,0.4)" stroke="#38f9d7" stroke-width="2"/>
-      <text x="42" y="37" text-anchor="middle" font-size="9" fill="#1a535c" font-weight="bold">箱号区</text>
+      <!-- 箱号区 -->
+      <rect x="35" y="15" width="70" height="25" rx="4" fill="rgba(255,255,255,0.5)" stroke="#38f9d7" stroke-width="1.5"/>
+      <text x="70" y="32" text-anchor="middle" font-size="9" fill="#1a535c" font-weight="bold">箱号区</text>
     </g>
     
-    <!-- 车辆示意 -->
-    <g transform="translate(350, 180)">
-      <rect x="0" y="0" width="100" height="50" rx="8" fill="#4299e1" opacity="0.6" filter="url(#shadow)"/>
-      <text x="50" y="30" text-anchor="middle" font-size="12" fill="white" font-weight="bold">车辆</text>
+    <!-- ===== 车辆示意（简化卡车俯视）===== -->
+    <g transform="translate(120, 100)">
+      <!-- 车头 -->
+      <rect x="0" y="0" width="60" height="80" rx="8" fill="#4299e1" opacity="0.8" filter="url(#shadow)" stroke="#2b6cb0" stroke-width="2"/>
+      <text x="30" y="45" text-anchor="middle" font-size="11" fill="white" font-weight="bold">车头</text>
+      <!-- 行驶方向箭头 -->
+      <polygon points="30,-15 45,0 30,-5 15,0" fill="#667eea"/>
+      <line x1="30" y1="-30" x2="30" y2="-5" stroke="#667eea" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    </g>
+    
+    <!-- 车尾示意 -->
+    <g transform="translate(120, 520)">
+      <rect x="0" y="0" width="60" height="40" rx="6" fill="#4299e1" opacity="0.6" filter="url(#shadow)" stroke="#2b6cb0" stroke-width="2"/>
+      <text x="30" y="25" text-anchor="middle" font-size="10" fill="white" font-weight="bold">车尾</text>
+    </g>
+    
+    <!-- ===== C3相机 - 道闸前侧方（俯视显示在前方）===== -->
+    <g transform="translate(-60, 250)">
+      <circle cx="0" cy="0" r="22" fill="url(#processGrad)" stroke="#f5576c" stroke-width="2" filter="url(#strongShadow)"/>
+      <text x="0" y="5" text-anchor="middle" font-size="12" fill="white" font-weight="bold">C3</text>
+      <!-- 拍摄范围指示（俯视角度）-->
+      <path d="M 22,0 L 140,-50" stroke="#f093fb" stroke-width="2" stroke-dasharray="5,3" opacity="0.7"/>
+      <path d="M 22,15 L 140,80" stroke="#f5576c" stroke-width="2" stroke-dasharray="5,3" opacity="0.7"/>
+      <!-- 标注 -->
+      <text x="0" y="45" text-anchor="middle" font-size="10" fill="#f5576c" font-weight="bold">C3</text>
+      <text x="0" y="60" text-anchor="middle" font-size="9" fill="#718096">前侧方</text>
+    </g>
+    
+    <!-- ===== C4相机 - 道闸后侧方（俯视显示在后方）===== -->
+    <g transform="translate(560, 420)">
+      <circle cx="0" cy="0" r="22" fill="url(#processGrad)" stroke="#f5576c" stroke-width="2" filter="url(#strongShadow)"/>
+      <text x="0" y="5" text-anchor="middle" font-size="12" fill="white" font-weight="bold">C4</text>
+      <!-- 拍摄范围指示（俯视角度）-->
+      <path d="M -22,-10 L -140,-50" stroke="#f5576c" stroke-width="2" stroke-dasharray="5,3" opacity="0.7"/>
+      <path d="M -22,10 L -140,40" stroke="#f093fb" stroke-width="2" stroke-dasharray="5,3" opacity="0.7"/>
+      <!-- 标注 -->
+      <text x="0" y="45" text-anchor="middle" font-size="10" fill="#f093fb" font-weight="bold">C4</text>
+      <text x="0" y="60" text-anchor="middle" font-size="9" fill="#718096">后侧方</text>
+    </g>
+    
+    <!-- ===== C7辅助相机 - 道闸前侧方低位 ===== -->
+    <g transform="translate(-60, 350)">
+      <rect x="-18" y="-18" width="36" height="36" rx="8" fill="url(#auxCameraGrad)" stroke="#ff6b6b" stroke-width="2" filter="url(#strongShadow)"/>
+      <text x="0" y="5" text-anchor="middle" font-size="11" fill="#c92a2a" font-weight="bold">C7</text>
+      <!-- 拍摄范围指示 -->
+      <path d="M 18,-5 L 140,50" stroke="#ff9a9e" stroke-width="2" stroke-dasharray="4,3" opacity="0.8"/>
+      <path d="M 18,10 L 140,120" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="4,3" opacity="0.8"/>
+      <!-- 标注 -->
+      <text x="0" y="45" text-anchor="middle" font-size="9" fill="#ff6b6b" font-weight="bold">辅助</text>
+    </g>
+    
+    <!-- ===== 尺寸标注 ===== -->
+    <!-- 总长标注 -->
+    <line x1="250" y1="185" x2="250" y2="520" stroke="#718096" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="270" y="350" text-anchor="start" font-size="10" fill="#718096">总长约12m</text>
+    <text x="270" y="365" text-anchor="start" font-size="9" fill="#718096">(2×6m)</text>
+  </g>
+  
+  <!-- ===== 相机详细说明区域（左侧）===== -->
+  <g transform="translate(30, 100)">
+    <rect x="0" y="0" width="280" height="600" fill="white" stroke="#e2e8f0" stroke-width="1.5" rx="6" filter="url(#shadow)"/>
+    <text x="140" y="25" text-anchor="middle" font-size="13" fill="#2d3748" font-weight="bold">相机配置说明</text>
+    
+    <!-- C5 -->
+    <g transform="translate(20, 50)">
+      <circle cx="15" cy="15" r="15" fill="#667eea"/>
+      <text x="15" y="20" text-anchor="middle" font-size="10" fill="white" font-weight="bold">C5</text>
+      <text x="40" y="12" font-size="11" fill="#2d3748" font-weight="bold">顶部相机C5</text>
+      <text x="40" y="28" font-size="9" fill="#718096">位置：道闸前上方</text>
+      <text x="40" y="42" font-size="9" fill="#718096">高度：8-10m</text>
+      <text x="40" y="56" font-size="9" fill="#718096">覆盖：车头+前箱</text>
+    </g>
+    
+    <!-- C6 -->
+    <g transform="translate(20, 130)">
+      <circle cx="15" cy="15" r="15" fill="#764ba2"/>
+      <text x="15" y="20" text-anchor="middle" font-size="10" fill="white" font-weight="bold">C6</text>
+      <text x="40" y="12" font-size="11" fill="#2d3748" font-weight="bold">顶部相机C6</text>
+      <text x="40" y="28" font-size="9" fill="#718096">位置：道闸后上方</text>
+      <text x="40" y="42" font-size="9" fill="#718096">高度：8-10m</text>
+      <text x="40" y="56" font-size="9" fill="#718096">覆盖：后箱+车尾</text>
+    </g>
+    
+    <!-- C3 -->
+    <g transform="translate(20, 210)">
+      <rect x="0" y="0" width="30" height="30" rx="6" fill="url(#processGrad)"/>
+      <text x="15" y="20" text-anchor="middle" font-size="10" fill="white" font-weight="bold">C3</text>
+      <text x="40" y="12" font-size="11" fill="#2d3748" font-weight="bold">前侧方相机C3</text>
+      <text x="40" y="28" font-size="9" fill="#718096">位置：道闸前侧方</text>
+      <text x="40" y="42" font-size="9" fill="#718096">高度：4m，俯角30°</text>
+      <text x="40" y="56" font-size="9" fill="#f5576c">覆盖：车辆前半部分</text>
+      <text x="40" y="70" font-size="9" fill="#f5576c">（含前箱侧面）</text>
+    </g>
+    
+    <!-- C4 -->
+    <g transform="translate(20, 310)">
+      <rect x="0" y="0" width="30" height="30" rx="6" fill="url(#processGrad)"/>
+      <text x="15" y="20" text-anchor="middle" font-size="10" fill="white" font-weight="bold">C4</text>
+      <text x="40" y="12" font-size="11" fill="#2d3748" font-weight="bold">后侧方相机C4</text>
+      <text x="40" y="28" font-size="9" fill="#718096">位置：道闸后侧方</text>
+      <text x="40" y="42" font-size="9" fill="#718096">高度：4m，俯角30°</text>
+      <text x="40" y="56" font-size="9" fill="#f093fb">覆盖：车辆后半部分</text>
+      <text x="40" y="70" font-size="9" fill="#f093fb">（含后箱侧面）</text>
+    </g>
+    
+    <!-- C7 -->
+    <g transform="translate(20, 410)">
+      <rect x="0" y="0" width="30" height="30" rx="6" fill="url(#auxCameraGrad)" stroke="#ff6b6b" stroke-width="1"/>
+      <text x="15" y="20" text-anchor="middle" font-size="10" fill="#c92a2a" font-weight="bold">C7</text>
+      <text x="40" y="12" font-size="11" fill="#c92a2a" font-weight="bold">★ 辅助相机C7</text>
+      <text x="40" y="28" font-size="9" fill="#718096">位置：道闸前侧方低位</text>
+      <text x="40" y="42" font-size="9" fill="#718096">高度：3-4m，45°角</text>
+      <text x="40" y="56" font-size="9" fill="#ff6b6b">覆盖：门端ISO码+锁杆</text>
+      <text x="40" y="70" font-size="9" fill="#ff6b6b">备用识别</text>
+    </g>
+    
+    <!-- 关键理解说明 -->
+    <g transform="translate(15, 520)">
+      <rect x="0" y="0" width="250" height="70" fill="#fff5f5" stroke="#feb2b2" stroke-width="1" rx="4"/>
+      <text x="125" y="18" text-anchor="middle" font-size="10" fill="#c92a2a" font-weight="bold">关键理解</text>
+      <text x="10" y="35" font-size="9" fill="#4a5568">• 两侧无空间，C3/C4从前后方拍摄</text>
+      <text x="10" y="50" font-size="9" fill="#4a5568">• C3拍前半部分（车头+前箱）</text>
+      <text x="10" y="65" font-size="9" fill="#4a5568">• C4拍后半部分（后箱+车尾）</text>
     </g>
   </g>
   
-  <!-- 道闸前侧方相机 C3 -->
-  <g transform="translate(200, 620)">
-    <rect x="-30" y="-20" width="60" height="40" rx="8" fill="url(#processGrad)" filter="url(#strongShadow)"/>
-    <text x="0" y="6" text-anchor="middle" font-size="14" fill="white" font-weight="bold">C3</text>
-    <text x="0" y="55" text-anchor="middle" font-size="13" fill="#f5576c" font-weight="bold">前侧方相机</text>
-    <text x="0" y="75" text-anchor="middle" font-size="11" fill="#718096">道闸前侧方安装</text>
-    <text x="0" y="92" text-anchor="middle" font-size="10" fill="#718096">高度4m，俯角30°</text>
-    
-    <!-- 拍摄范围指示线 - 指向前半箱体 -->
-    <path d="M -25,-20 L 0,-280" stroke="#f093fb" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
-    <path d="M 25,-20 L 80,-280" stroke="#f5576c" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+  <!-- ===== 行驶方向标注（下方）===== -->
+  <g transform="translate(600, 730)">
+    <text x="0" y="0" text-anchor="middle" font-size="14" fill="#4a5568" font-weight="bold">车辆行驶方向</text>
+    <line x1="-120" y1="25" x2="120" y2="25" stroke="#667eea" stroke-width="4" marker-end="url(#arrowBlue)"/>
+    <text x="0" y="55" text-anchor="middle" font-size="11" fill="#718096">入口 → 道闸 → 出口</text>
   </g>
   
-  <!-- 道闸后侧方相机 C4 -->
-  <g transform="translate(1000, 620)">
-    <rect x="-30" y="-20" width="60" height="40" rx="8" fill="url(#processGrad)" filter="url(#strongShadow)"/>
-    <text x="0" y="6" text-anchor="middle" font-size="14" fill="white" font-weight="bold">C4</text>
-    <text x="0" y="55" text-anchor="middle" font-size="13" fill="#f093fb" font-weight="bold">后侧方相机</text>
-    <text x="0" y="75" text-anchor="middle" font-size="11" fill="#718096">道闸后侧方安装</text>
-    <text x="0" y="92" text-anchor="middle" font-size="10" fill="#718096">高度4m，俯角30°</text>
+  <!-- ===== 覆盖逻辑说明（底部）===== -->
+  <g transform="translate(30, 780)">
+    <rect x="0" y="0" width="1140" height="105" fill="white" stroke="#e2e8f0" stroke-width="1.5" rx="6" filter="url(#shadow)"/>
+    <text x="570" y="22" text-anchor="middle" font-size="12" fill="#2d3748" font-weight="bold">5.5摄像头覆盖逻辑（头尾安装模式 - 双20尺纵向排列）</text>
     
-    <!-- 拍摄范围指示线 - 指向后半箱体 -->
-    <path d="M -25,-20 L -80,-280" stroke="#f5576c" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
-    <path d="M 25,-20 L 0,-280" stroke="#f093fb" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
-  </g>
-  
-  <!-- 辅助相机 C7 - 道闸前侧方低位 -->
-  <g transform="translate(400, 660)">
-    <rect x="-35" y="-22" width="70" height="44" rx="10" fill="url(#auxCameraGrad)" stroke="#ff6b6b" stroke-width="2" filter="url(#strongShadow)"/>
-    <text x="0" y="6" text-anchor="middle" font-size="14" fill="#c92a2a" font-weight="bold">C7</text>
-    <text x="0" y="45" text-anchor="middle" font-size="13" fill="#ff6b6b" font-weight="bold">★ 辅助相机</text>
-    <text x="0" y="65" text-anchor="middle" font-size="11" fill="#718096">道闸前侧方低位</text>
-    <text x="0" y="82" text-anchor="middle" font-size="10" fill="#718096">高度3-4m，45°角</text>
-    <text x="0" y="99" text-anchor="middle" font-size="9" fill="#c92a2a" font-weight="bold">门端ISO码+锁杆</text>
+    <text x="15" y="42" font-size="10" fill="#4a5568">• C5(道闸前上方8-10m)：实时检测+车头定位，俯拍车头+前箱整体</text>
+    <text x="15" y="57" font-size="10" fill="#4a5568">• C6(道闸后上方8-10m)：车尾定位+箱型判断，俯拍后箱+车尾整体</text>
+    <text x="400" y="42" font-size="10" fill="#4a5568">• C3(道闸前侧方4m)：拍摄车辆前半部分，含前箱侧面，俯角30°</text>
+    <text x="400" y="57" font-size="10" fill="#4a5568">• C4(道闸后侧方4m)：拍摄车辆后半部分，含后箱侧面，俯角30°</text>
+    <text x="780" y="42" font-size="10" fill="#c92a2a" font-weight="bold">• C7(道闸前侧方低位3-4m)：★ 辅助相机 - 门端ISO码+锁杆，45°角</text>
+    <text x="780" y="57" font-size="10" fill="#4a5568">• 双20尺纵向排列：前箱(车头侧) + 后箱(车尾侧)，总长12m</text>
     
-    <!-- 拍摄范围指示线 - 指向门端区域 -->
-    <path d="M -30,-22 L -100,-320" stroke="#ff9a9e" stroke-width="2" stroke-dasharray="5,5" opacity="0.8"/>
-    <path d="M 0,-22 L -60,-320" stroke="#ff6b6b" stroke-width="2.5" stroke-dasharray="5,5" opacity="0.8"/>
-    <path d="M 30,-22 L -20,-320" stroke="#ff9a9e" stroke-width="2" stroke-dasharray="5,5" opacity="0.8"/>
-  </g>
-  
-  <!-- 顶部相机拍摄范围示意 -->
-  <g transform="translate(300, 160)">
-    <!-- C5 拍摄范围扇形示意 -->
-    <path d="M 0,0 L -80,100 L 80,100 Z" fill="rgba(102,126,234,0.15)" stroke="#667eea" stroke-width="1.5" stroke-dasharray="5,3"/>
-    <text x="0" y="80" text-anchor="middle" font-size="10" fill="#667eea">C5拍摄范围</text>
-  </g>
-  
-  <g transform="translate(900, 160)">
-    <!-- C6 拍摄范围扇形示意 -->
-    <path d="M 0,0 L -80,100 L 80,100 Z" fill="rgba(118,75,162,0.15)" stroke="#764ba2" stroke-width="1.5" stroke-dasharray="5,3"/>
-    <text x="0" y="80" text-anchor="middle" font-size="10" fill="#764ba2">C6拍摄范围</text>
-  </g>
-  
-  <!-- 行驶方向 -->
-  <g transform="translate(600, 820)">
-    <text x="0" y="-20" text-anchor="middle" font-size="14" fill="#4a5568" font-weight="bold">车辆行驶方向</text>
-    <line x1="-150" y1="0" x2="150" y2="0" stroke="#667eea" stroke-width="5" marker-end="url(#arrowBlue)"/>
-    <polygon points="150,-15 175,0 150,15" fill="#667eea"/>
-  </g>
-  
-  <!-- 图例说明 -->
-  <g transform="translate(30, 750)">
-    <rect x="0" y="0" width="380" height="85" fill="white" stroke="#e2e8f0" stroke-width="1.5" rx="6" filter="url(#shadow)"/>
-    <text x="190" y="22" text-anchor="middle" font-size="12" fill="#2d3748" font-weight="bold">图例</text>
-    
-    <circle cx="35" cy="50" r="10" fill="#667eea"/>
-    <text x="55" y="54" font-size="10" fill="#4a5568">顶部相机C5</text>
-    
-    <circle cx="140" cy="50" r="10" fill="#764ba2"/>
-    <text x="160" y="54" font-size="10" fill="#4a5568">顶部相机C6</text>
-    
-    <rect x="235" y="42" width="20" height="16" rx="4" fill="url(#processGrad)"/>
-    <text x="265" y="54" font-size="10" fill="#4a5568">侧方相机C3/C4</text>
-    
-    <rect x="235" y="62" width="20" height="16" rx="4" fill="url(#auxCameraGrad)"/>
-    <text x="265" y="74" font-size="10" fill="#4a5568">辅助相机C7</text>
-  </g>
-  
-  <!-- 覆盖逻辑说明 -->
-  <g transform="translate(450, 750)">
-    <rect x="0" y="0" width="720" height="135" fill="white" stroke="#e2e8f0" stroke-width="1.5" rx="6" filter="url(#shadow)"/>
-    <text x="360" y="22" text-anchor="middle" font-size="12" fill="#2d3748" font-weight="bold">5.5摄像头覆盖逻辑（头尾安装模式）</text>
-    
-    <text x="15" y="42" font-size="10" fill="#4a5568">• C5(道闸前上方8-10m)：实时检测+车头定位，俯拍前半箱体</text>
-    <text x="15" y="57" font-size="10" fill="#4a5568">• C6(道闸后上方8-10m)：车尾定位+箱型判断，俯拍后半箱体</text>
-    <text x="15" y="72" font-size="10" fill="#4a5568">• C3(道闸前侧方4m)：拍摄车辆前半部分，俯角30°</text>
-    <text x="15" y="87" font-size="10" fill="#4a5568">• C4(道闸后侧方4m)：拍摄车辆后半部分，俯角30°</text>
-    <text x="15" y="102" font-size="10" fill="#c92a2a" font-weight="bold">• C7(道闸前侧方低位3-4m)：★ 辅助相机 - 门端ISO码+锁杆+备用识别，45°角</text>
-    <text x="15" y="120" font-size="9" fill="#718096" font-style="italic">注：当两侧无安装空间时，C3/C4从前后方拍摄；C7作为辅助相机专门拍摄门端细节和锁杆状态</text>
+    <text x="15" y="85" font-size="9" fill="#718096" font-style="italic">注：当两侧无安装空间时采用头尾安装模式；C3/C4分别从前后方向拍摄；C7专门拍摄前箱门端细节和锁杆状态</text>
+    <text x="15" y="100" font-size="9" fill="#718096" font-style="italic">     所有箱号区位于各箱侧面，C3/C4通过前后角度可拍摄到各自对应箱体的侧面箱号</text>
   </g>
 </svg>

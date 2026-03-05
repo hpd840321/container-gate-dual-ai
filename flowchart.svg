@@ -53,7 +53,7 @@
     <g transform="translate(30, 55)">
       <rect x="0" y="0" width="200" height="105" rx="8" fill="#e6f7ff" stroke="#4facfe" stroke-width="2"/>
       <text x="100" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">C5+C6实时检测</text>
-      <text x="100" y="50" text-anchor="middle" font-size="11" fill="#333">道闸前后高位</text>
+      <text x="100" y="50" text-anchor="middle" font-size="11" fill="#333">车头+前箱/后箱+车尾</text>
       <text x="100" y="70" text-anchor="middle" font-size="10" fill="#666">8-10m高度</text>
       <text x="100" y="88" text-anchor="middle" font-size="10" fill="#666">25-30 FPS</text>
       
@@ -152,13 +152,13 @@
       <g transform="translate(180, 30)">
         <rect x="10" y="0" width="40" height="35" rx="5" fill="#4facfe"/>
         <text x="30" y="23" text-anchor="middle" font-size="10" fill="white" font-weight="bold">C3</text>
-        <text x="30" y="55" text-anchor="middle" font-size="9" fill="#333">左侧</text>
+        <text x="30" y="55" text-anchor="middle" font-size="9" fill="#333">前箱侧面</text>
       </g>
       
       <g transform="translate(260, 30)">
         <rect x="10" y="0" width="40" height="35" rx="5" fill="#00f2fe"/>
         <text x="30" y="23" text-anchor="middle" font-size="10" fill="white" font-weight="bold">C4</text>
-        <text x="30" y="55" text-anchor="middle" font-size="9" fill="#333">右侧</text>
+        <text x="30" y="55" text-anchor="middle" font-size="9" fill="#333">后箱侧面</text>
       </g>
       
       <text x="350" y="40" font-size="10" fill="#333">→ 4基础相机始终触发</text>
@@ -195,7 +195,7 @@
       <rect x="0" y="10" width="140" height="130" rx="8" fill="#e6f7ff" stroke="#1890ff" stroke-width="2"/>
       <text x="70" y="35" text-anchor="middle" font-size="11" fill="#096dd9" font-weight="bold">C3+C4</text>
       <text x="70" y="60" text-anchor="middle" font-size="10" fill="#333">主力OCR</text>
-      <text x="70" y="80" text-anchor="middle" font-size="10" fill="#666">左/右侧面箱号</text>
+      <text x="70" y="80" text-anchor="middle" font-size="10" fill="#666">前/后箱箱号</text>
       <text x="70" y="100" text-anchor="middle" font-size="10" fill="#666">识别率: 98%</text>
       <text x="70" y="125" text-anchor="middle" font-size="9" fill="#52c41a">置信度评估</text>
       
