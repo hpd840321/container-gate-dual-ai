@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 渐变定义 -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="startGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="processGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="decisionGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="dualGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="singleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="errorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fecfef;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="4" flood-opacity="0.2"/>
+    </filter>
+    
+    <!-- 统一箭头定义 -->
+    <marker id="arrowHead" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#5a67d8"/>
+    </marker>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1400" height="1600" fill="#fafbfc"/>
+  
+  <!-- 标题栏 -->
+  <g transform="translate(0, 0)">
+    <rect width="1400" height="80" fill="url(#titleGrad)"/>
+    <text x="700" y="35" text-anchor="middle" font-size="26" fill="white" font-weight="bold">
+      集装箱智能识别系统 - 核心处理流程
+    </text>
+    <text x="700" y="60" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.9)">
+      Container AI Recognition System Flowchart
+    </text>
+  </g>
+  
+  <!-- 开始节点 -->
+  <g transform="translate(600, 120)">
+    <rect x="0" y="0" width="200" height="50" rx="25" fill="url(#startGrad)" filter="url(#shadow)"/>
+    <text x="100" y="30" text-anchor="middle" font-size="14" fill="white" font-weight="bold">地感线圈触发</text>
+  </g>
+  
+  <!-- 箭头 1 - 主流程 -->
+  <line x1="700" y1="170" x2="700" y2="200" stroke="#5a67d8" stroke-width="3" marker-end="url(#arrowHead)"/>
+  
+  <!-- 抓拍节点 -->
+  <g transform="translate(550, 200)">
+    <rect x="0" y="0" width="300" height="50" rx="8" fill="url(#processGrad)" filter="url(#shadow)"/>
+    <text x="150" y="30" text-anchor="middle" font-size="14" fill="#1a535c" font-weight="bold">所有相机同步抓拍（时间误差&lt;10ms）</text>
+  </g>
+  
+  <!-- 箭头 2 - 主流程 -->
+  <line x1="700" y1="250" x2="700" y2="280" stroke="#5a67d8" stroke-width="3" marker-end="url(#arrowHead)"/>
+  
+  <!-- 图像输入节点 -->
+  <g transform="translate(500, 280)">
+    <rect x="0" y="0" width="400" height="60" rx="8" fill="white" stroke="#5a67d8" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="200" y="25" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">顶部左相机 C5 &amp; 顶部右相机 C6</text>
+    <text x="200" y="45" text-anchor="middle" font-size="13" fill="#666">图像输入至 AI 检测模块</text>
+  </g>
+  
+  <!-- 箭头 3 - 主流程 -->
+  <line x1="700" y1="340" x2="700" y2="370" stroke="#5a67d8" stroke-width="3" marker-end="url(#arrowHead)"/>
+  
+  <!-- 核心 AI 检测区域 -->
+  <g transform="translate(100, 370)">
+    <!-- 背景框 -->
+    <rect x="0" y="0" width="1200" height="650" rx="12" fill="white" stroke="#5a67d8" stroke-width="2.5" stroke-dasharray="10,5"/>
+    <text x="600" y="30" text-anchor="middle" font-size="18" fill="#5a67d8" font-weight="bold">核心 AI 检测与逻辑判断</text>
+    
+    <!-- YOLOv5 检测 -->
+    <g transform="translate(450, 60)">
+      <rect x="0" y="0" width="300" height="60" rx="8" fill="url(#processGrad)" filter="url(#shadow)"/>
+      <text x="150" y="25" text-anchor="middle" font-size="13" fill="white" font-weight="bold">YOLOv5 模型检测</text>
+      <text x="150" y="45" text-anchor="middle" font-size="12" fill="white">集装箱箱体/角件识别</text>
+    </g>
+    
+    <!-- 箭头 4 - 主流程 -->
+    <line x1="600" y1="120" x2="600" y2="150" stroke="#5a67d8" stroke-width="3" marker-end="url(#arrowHead)"/>
+    
+    <!-- 决策节点：检测到几个箱体？ -->
+    <g transform="translate(450, 150)">
+      <polygon points="150,0 300,40 150,80 0,40" fill="url(#decisionGrad)" filter="url(#shadow)"/>
+      <text x="150" y="30" text-anchor="middle" font-size="13" fill="#0d4f4f" font-weight="bold">检测到几个独立箱体？</text>
+      <text x="150" y="50" text-anchor="middle" font-size="12" fill="#0d4f4f">基于 AI 视觉分析</text>
+    </g>
+    
+    <!-- 双箱分支 - 红色 -->
+    <line x1="600" y1="230" x2="600" y2="260" stroke="#e53e3e" stroke-width="3" marker-end="url(#arrowHead)"/>
+    <text x="620" y="255" font-size="12" fill="#e53e3e" font-weight="bold">两个独立箱体</text>
+    
+    <!-- 单箱分支 - 绿色 -->
+    <polyline points="450,190 200,190 200,400" fill="none" stroke="#38a169" stroke-width="3" marker-end="url(#arrowHead)"/>
+    <text x="220" y="185" font-size="12" fill="#38a169" font-weight="bold">一个独立箱体</text>
+    
+    <!-- 异常分支 - 橙色 -->
+    <polyline points="750,190 1000,190 1000,400" fill="none" stroke="#dd6b20" stroke-width="3" marker-end="url(#arrowHead)"/>
+    <text x="770" y="185" font-size="12" fill="#dd6b20" font-weight="bold">零个或无法确认</text>
+    
+    <!-- ==================== 双箱分支 ==================== -->
+    <g transform="translate(400, 260)">
+      <!-- 判定：双 20 尺柜模式 -->
+      <rect x="0" y="0" width="400" height="50" rx="8" fill="url(#dualGrad)" filter="url(#shadow)"/>
+      <text x="200" y="30" text-anchor="middle" font-size="14" fill="#1a535c" font-weight="bold">判定：双 20 尺柜模式</text>
+      
+      <!-- 箭头 - 双箱红色 -->
+      <line x1="200" y1="50" x2="200" y2="80" stroke="#e53e3e" stroke-width="3" marker-end="url(#arrowHead)"/>
+      
+      <!-- 区分左右箱 -->
+      <rect x="0" y="80" width="400" height="60" rx="8" fill="white" stroke="#e53e3e" stroke-width="2.5" filter="url(#shadow)"/>
+      <text x="200" y="105" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">根据坐标关系区分左箱/右箱</text>
+      <text x="200" y="125" text-anchor="middle" font-size="11" fill="#666">左箱靠近 C5，右箱靠近 C6</text>
+      
+      <!-- 箭头 - 双箱红色 -->
+      <line x1="200" y1="140" x2="200" y2="170" stroke="#e53e3e" stroke-width="3" marker-end="url(#arrowHead)"/>
+      
+      <!-- 计算箱号位置 -->
+      <rect x="0" y="170" width="400" height="60" rx="8" fill="white" stroke="#e53e3e" stroke-width="2.5" filter="url(#shadow)"/>
+      <text x="200" y="195" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">计算箱号在侧面的大致位置</text>
+      <text x="200" y="215" text-anchor="middle" font-size="11" fill="#666">基于角点坐标估算箱门朝向</text>
+      
+      <!-- 箭头 - 双箱红色 -->
+      <line x1="200" y1="230" x2="200" y2="260" stroke="#e53e3e" stroke-width="3" marker-end="url(#arrowHead)"/>
+      
+      <!-- 决策：靠前还是靠后？ -->
+      <g transform="translate(50, 260)">
+        <polygon points="150,0 300,40 150,80 0,40" fill="url(#decisionGrad)" filter="url(#shadow)"/>
+        <text x="150" y="35" text-anchor="middle" font-size="13" fill="#0d4f4f" font-weight="bold">箱号靠前还是靠后？</text>
+      </g>
+      
+      <!-- 靠前分支 - 蓝色 -->
+      <polyline points="50,300 0,300 0,340" fill="none" stroke="#3182ce" stroke-width="3" marker-end="url(#arrowHead)"/>
+      <text x="10" y="335" font-size="11" fill="#3182ce" font-weight="bold">靠前</text>
+      
+      <!-- 靠后分支 - 青色 -->
+      <polyline points="350,300 400,300 400,340" fill="none" stroke="#00b5d8" stroke-width="3" marker-end="url(#arrowHead)"/>
+      <text x="360" y="335" font-size="11" fill="#00b5d8" font-weight="bold">靠后</text>
+      
+      <!-- 选择前向相机 C3 -->
+      <rect x="-100" y="340" width="200" height="45" rx="8" fill="url(#processGrad)" filter="url(#shadow)"/>
+      <text x="0" y="368" text-anchor="middle" font-size="12" fill="white" font-weight="bold">选择前向相机 C3</text>
+      
+      <!-- 选择后向相机 C4 -->
+      <rect x="300" y="340" width="200" height="45" rx="8" fill="url(#processGrad)" filter="url(#shadow)"/>
+      <text x="400" y="368" text-anchor="middle" font-size="12" fill="white" font-weight="bold">选择后向相机 C4</text>
+      
+      <!-- 合并到 ROI 映射 - 主流程紫蓝 -->
+      <polyline points="100,385 100,415 200,415" fill="none" stroke="#5a67d8" stroke-width="3" marker-end="url(#arrowHead)"/>
+      <polyline points="300,385 300,415 200,415" fill="none" stroke="#5a67d8" stroke-width="3" marker-end="url(#arrowHead)"/>
+    </g>
+    
+    <!-- ==================== 单箱分支 ==================== -->
+    <g transform="translate(0, 400)">
+      <!-- 判定：单箱模式 -->
+      <rect x="0" y="0" width="400" height="45" rx="8" fill="url(#singleGrad)" filter="url(#shadow)"/>
+      <text x="200" y="28" text-anchor="middle" font-size="14" fill="#1a535c" font-weight="bold">判定：单箱模式</text>
+      
+      <!-- 箭头 - 单箱绿色 -->
+      <line x1="200" y1="45" x2="200" y2="70" stroke="#38a169" stroke-width="3" marker-end="url(#arrowHead)"/>
+      
+      <!-- 计算箱体长度 -->
+      <rect x="0" y="70" width="400" height="50" rx="8" fill="white" stroke="#38a169" stroke-width="2.5" filter="url(#shadow)"/>
+      <text x="200" y="92" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">计算箱体长度</text>
+      <text x="200" y="110" text-anchor="middle" font-size="11" fill="#666">基于角点坐标换算物理长度</text>
+      
+      <!-- 箭头 - 单箱绿色 -->
+      <line x1="200" y1="120" x2="200" y2="145" stroke="#38a169" stroke-width="3" marker-end="url(#arrowHead)"/>
+      
+      <!-- 长度判断 -->
+      <g transform="translate(50, 145)">
+        <polygon points="150,0 250,30 150,60 50,30" fill="url(#decisionGrad)" filter="url(#shadow)"/>
+        <text x="150" y="24" text-anchor="middle" font-size="11" fill="#0d4f4f" font-weight="bold">长度判断</text>
+        <text x="150" y="43" text-anchor="middle" font-size="10" fill="#0d4f4f">≈6m 或 ≈12m</text>
+      </g>
+      
+      <!-- 20 尺分支 - 绿色 -->
+      <polyline points="50,175 -50,175 -50,210" fill="none" stroke="#38a169" stroke-width="3" marker-end="url(#arrowHead)"/>
+      <text x="-70" y="205" font-size="10" fill="#38a169" font-weight="bold">≈6 米</text>
+      
+      <!-- 40 尺分支 - 绿色 -->
+      <polyline points="250,175 350,175 350,210" fill="none" stroke="#38a169" stroke-width="3" marker-end="url(#arrowHead)"/>
+      <text x="330" y="205" font-size="10" fill="#38a169" font-weight="bold">≈12 米</text>
+      
+      <!-- 单 20 尺 -->
+      <rect x="-150" y="210" width="200" height="40" rx="8" fill="white" stroke="#38a169" stroke-width="2.5" filter="url(#shadow)"/>
+      <text x="-50" y="235" text-anchor="middle" font-size="12" fill="#1a535c" font-weight="bold">单 20 尺柜</text>
+      
+      <!-- 单 40 尺 -->
+      <rect x="250" y="210" width="200" height="40" rx="8" fill="white" stroke="#38a169" stroke-width="2.5" filter="url(#shadow)"/>
+      <text x="350" y="235" text-anchor="middle" font-size="12" fill="#1a535c" font-weight="bold">单 40 尺柜</text>
+      
+      <!-- 合并到相机选择 - 主流程紫蓝 -->
+      <polyline points="-50,250 -50,275 100,275" fill="none" stroke="#5a67d8" stroke-width="3" marker-end="url(#arrowHead)"/>
+      <polyline points="350,250 350,275 200,275" fill="none" stroke="#5a67d8" stroke-width="3" marker-end="url(#arrowHead)"/>
+      
+      <!-- 选择主用侧壁相机 -->
+      <rect x="0" y="275" width="400" height="45" rx="8" fill="url(#processGrad)" filter="url(#shadow)"/>
+      <text x="200" y="303" text-anchor="middle" font-size="12" fill="white" font-weight="bold">根据箱体中心线偏向选择主用侧壁相机</text>
+      
+      <!-- 箭头 - 主流程 -->
+      <line x1="200" y1="320" x2="200" y2="340" stroke="#5a67d8" stroke-width="3" marker-end="url(#arrowHead)"/>
+      
+      <!-- 选择 C3 或 C4 -->
+      <rect x="0" y="340" width="400" height="45" rx="8" fill="white" stroke="#5a67d8" stroke-width="2.5" filter="url(#shadow)"/>
+      <text x="200" y="368" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">根据箱门朝向判断箱号位置，选择 C3 或 C4</text>
+    </g>
+    
+    <!-- ==================== 异常分支 ==================== -->
+    <g transform="translate(800, 400)">
+      <!-- 异常处理 -->
+      <rect x="0" y="0" width="350" height="70" rx="8" fill="url(#errorGrad)" filter="url(#shadow)"/>
+      <text x="175" y="28" text-anchor="middle" font-size="13" fill="#1a535c" font-weight="bold">异常处理</text>
+      <text x="175" y="50" text-anchor="middle" font-size="11" fill="#666">图像缓存，触发补拍</text>
+      <text x="175" y="65" text-anchor="middle" font-size="11" fill="#666">或转人工处理</text>
+    </g>
+  </g>
+  
+  <!-- ==================== 合并与输出 ==================== -->
+  <g transform="translate(400, 1020)">
+    <!-- ROI 映射 -->
+    <rect x="0" y="0" width="600" height="60" rx="8" fill="url(#processGrad)" filter="url(#shadow)"/>
+    <text x="300" y="28" text-anchor="middle" font-size="14" fill="#1a535c" font-weight="bold">利用标定参数将箱体 ROI 映射至对应相机图像</text>
+    <text x="300" y="50" text-anchor="middle" font-size="12" fill="#1a535c">单应矩阵变换 + 坐标转换</text>
+    
+    <!-- 箭头 - 主流程 -->
+    <line x1="300" y1="60" x2="300" y2="90" stroke="#5a67d8" stroke-width="3" marker-end="url(#arrowHead)"/>
+    
+    <!-- OCR 识别 -->
+    <rect x="100" y="90" width="400" height="50" rx="8" fill="url(#dualGrad)" filter="url(#shadow)"/>
+    <text x="300" y="120" text-anchor="middle" font-size="14" fill="#1a535c" font-weight="bold">并行 OCR 识别（CRNN+CTC）</text>
+    
+    <!-- 箭头 - 主流程 -->
+    <line x1="300" y1="140" x2="300" y2="170" stroke="#5a67d8" stroke-width="3" marker-end="url(#arrowHead)"/>
+    
+    <!-- 结果融合 -->
+    <rect x="50" y="170" width="500" height="60" rx="8" fill="white" stroke="#5a67d8" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="250" y="195" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">结果融合与置信度评估</text>
+    <text x="250" y="215" text-anchor="middle" font-size="12" fill="#666">多相机结果融合 + 置信度评分</text>
+    
+    <!-- 箭头 - 主流程 -->
+    <line x1="250" y1="230" x2="250" y2="260" stroke="#5a67d8" stroke-width="3" marker-end="url(#arrowHead)"/>
+    
+    <!-- 上传 TOS -->
+    <rect x="0" y="260" width="500" height="60" rx="8" fill="url(#titleGrad)" filter="url(#shadow)"/>
+    <text x="250" y="288" text-anchor="middle" font-size="14" fill="white" font-weight="bold">上传至 TOS 系统</text>
+    <text x="250" y="308" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.9)">RESTful API + 失败重传机制</text>
+  </g>
+  
+  <!-- 底部装饰 -->
+  <g transform="translate(0, 1550)">
+    <line x1="100" y1="0" x2="1300" y2="0" stroke="#cbd5e0" stroke-width="2"/>
+    <text x="700" y="25" text-anchor="middle" font-size="12" fill="#a0aec0">
+      系统响应时间 ≤2 秒 | 双箱识别率 ≥98% | 单箱识别率 ≥99.5%
+    </text>
+  </g>
+</svg>

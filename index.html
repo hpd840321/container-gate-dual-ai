@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>码头集装箱道闸双短柜AI识别系统 - 可视化方案</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease;
+        }
+        
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-tab {
+            padding: 12px 30px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-tab:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .nav-tab.active {
+            background: white;
+            color: #667eea;
+            border-color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .diagram-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.8s ease;
+            margin-bottom: 30px;
+        }
+        
+        .diagram-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-left: 4px solid #f5576c;
+            padding-left: 15px;
+        }
+        
+        .diagram-section p {
+            color: #4a5568;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .svg-container {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .svg-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .svg-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .svg-container::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+        
+        .svg-container::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        
+        .svg-container svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+        
+        .info-card h3 {
+            color: #2d3748;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .info-card li {
+            color: #4a5568;
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .info-card li:before {
+            content: "•";
+            color: #f5576c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 20px;
+            opacity: 0.9;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 26px;
+            }
+            
+            .diagram-section {
+                padding: 20px;
+            }
+            
+            .nav-tab {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚢 码头集装箱道闸双短柜AI识别系统</h1>
+            <p>可视化技术方案 | Visual Technical Solution</p>
+        </header>
+        
+        <nav class="nav-tabs">
+            <div class="nav-tab active" onclick="showSection('mode1')">模式一：侧壁安装</div>
+            <div class="nav-tab" onclick="showSection('mode2')">模式二：头尾安装</div>
+            <div class="nav-tab" onclick="showSection('flowchart')">核心处理流程</div>
+            <div class="nav-tab" onclick="showSection('scenario')">三场景对比</div>
+            <div class="nav-tab" onclick="showSection('coverage')">视野覆盖与映射</div>
+            <div class="nav-tab" onclick="showSection('barrier')">红外光栅栏</div>
+        </nav>
+        
+        <!-- 模式一：侧壁安装 -->
+        <section id="mode1" class="diagram-section">
+            <h2>模式一：标准侧壁安装部署示意图</h2>
+            <p>适用于车道两侧有足够安装空间的场景。顶部相机（C5/C6）安装于龙门架高处（6 米），侧壁相机（C3/C4）安装于车道两侧（高度 1.5 米，距车道 3 米）。该模式下相机视野最佳，识别率最高。</p>
+            <div class="svg-container">
+                <object data="deployment_mode1.svg" type="image/svg+xml" width="100%">
+                    <img src="deployment_mode1.svg" alt="模式一部署图" style="width: 100%;">
+                </object>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📷 顶部相机（C5/C6）</h3>
+                    <ul>
+                        <li>200 万像素，2.8mm 镜头</li>
+                        <li>安装高度：6 米，俯角 10°</li>
+                        <li>覆盖范围：6.5m × 4.8m</li>
+                        <li>负责箱体检测和定位</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>📷 侧壁相机（C3/C4）</h3>
+                    <ul>
+                        <li>复用现有 200 万像素相机</li>
+                        <li>安装高度：1.5 米</li>
+                        <li>距车道边线：3 米</li>
+                        <li>负责箱号 OCR 识别</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>✨ 核心优势</h3>
+                    <ul>
+                        <li>视野无遮挡，识别率≥98%</li>
+                        <li>可处理歪斜≤15°的车辆</li>
+                        <li>自适应双箱间隙变化</li>
+                        <li>无需破路，安装快捷</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 模式二：头尾安装 -->
+        <section id="mode2" class="diagram-section hidden">
+            <h2>模式二：头尾安装部署示意图</h2>
+            <p>适用于车道两侧无安装空间，只能将相机装于车道前后方的场景。前向相机（C3）拍摄车辆前半部分（0~8 米），后向相机（C4）拍摄车辆后半部分（8~16 米），通过顶部相机判断箱号位置动态选择相机。</p>
+            <div class="svg-container">
+                <object data="deployment_mode2.svg" type="image/svg+xml" width="100%">
+                    <img src="deployment_mode2.svg" alt="模式二部署图" style="width: 100%;">
+                </object>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📷 前向相机 C3</h3>
+                    <ul>
+                        <li>200 万像素，6mm 镜头</li>
+                        <li>安装高度：4 米，俯角 30°</li>
+                        <li>覆盖范围：0~8 米（前半部分）</li>
+                        <li>负责箱号靠前时的识别</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>📷 后向相机 C4</h3>
+                    <ul>
+                        <li>200 万像素，6mm 镜头</li>
+                        <li>安装高度：4 米，俯角 30°</li>
+                        <li>覆盖范围：8~16 米（后半部分）</li>
+                        <li>负责箱号靠后时的识别</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🎯 智能选择策略</h3>
+                    <ul>
+                        <li>顶部相机判断箱门朝向</li>
+                        <li>动态选择 C3 或 C4 识别</li>
+                        <li>也可融合两者结果提高鲁棒性</li>
+                        <li>适应性强，不受侧面空间限制</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 核心处理流程 -->
+        <section id="flowchart" class="diagram-section hidden">
+            <h2>核心 AI识别处理流程</h2>
+            <p>系统采用 YOLOv5 深度学习模型进行集装箱箱体和角件检测，根据检测到的箱体数量自动判断装载模式（单 20 尺、单 40 尺、双 20 尺），并通过坐标映射和 OCR 技术实现箱号自动识别。全流程响应时间≤2 秒。</p>
+            <div class="svg-container">
+                <object data="flowchart.svg" type="image/svg+xml" width="100%">
+                    <img src="flowchart.svg" alt="处理流程图" style="width: 100%;">
+                </object>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🤖 AI 检测模型</h3>
+                    <ul>
+                        <li>YOLOv5 目标检测算法</li>
+                        <li>集装箱箱体边界框检测</li>
+                        <li>角点特征识别</li>
+                        <li>箱门朝向判断</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🔧 坐标映射技术</h3>
+                    <ul>
+                        <li>单应矩阵 H 坐标变换</li>
+                        <li>顶部→侧壁 ROI 映射</li>
+                        <li>预先标定板校准</li>
+                        <li>像素级精度转换</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>👁️ OCR 识别引擎</h3>
+                    <ul>
+                        <li>CRNN+CTC 识别架构</li>
+                        <li>字符级注意力机制</li>
+                        <li>支持污损箱号识别</li>
+                        <li>置信度评分融合</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 三场景对比 -->
+        <section id="scenario" class="diagram-section hidden">
+            <h2>三种装载模式识别对比</h2>
+            <p>系统通过顶部相机的 AI 视觉分析，自适应处理单 20 尺柜、单 40 尺柜、双 20 尺柜三种装载模式，无需物理光栅预判。不同场景下采用不同的相机选择策略和识别逻辑，确保识别率最优。</p>
+            <div class="svg-container">
+                <object data="scenario_comparison.svg" type="image/svg+xml" width="100%">
+                    <img src="scenario_comparison.svg" alt="场景对比图" style="width: 100%;">
+                </object>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📦 双 20 尺柜模式</h3>
+                    <ul>
+                        <li>检测到两个独立箱体</li>
+                        <li>识别率目标：≥98%</li>
+                        <li>需分离双箱并分别识别</li>
+                        <li>处理复杂度：高</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>📦 单 20 尺柜模式</h3>
+                    <ul>
+                        <li>检测到一个独立箱体</li>
+                        <li>识别率目标：≥99.5%</li>
+                        <li>根据中心线偏向选相机</li>
+                        <li>处理复杂度：中</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>📦 单 40 尺柜模式</h3>
+                    <ul>
+                        <li>检测到长箱体（跨视野）</li>
+                        <li>识别率目标：≥99.5%</li>
+                        <li>需特征关联融合</li>
+                        <li>处理复杂度：中高</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 视野覆盖与映射 -->
+        <section id="coverage" class="diagram-section hidden">
+            <h2>相机视野覆盖与坐标映射原理</h2>
+            <p>顶部相机垂直或略俯视拍摄，通过深度学习检测箱体位置、角点及箱门朝向，并计算箱号在侧壁图像中的映射区域。利用单应矩阵（Homography Matrix）实现从顶部图像坐标到侧壁图像坐标的精确转换。</p>
+            <div class="svg-container">
+                <object data="camera_coverage.svg" type="image/svg+xml" width="100%">
+                    <img src="camera_coverage.svg" alt="视野覆盖图" style="width: 100%;">
+                </object>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📐 单应矩阵标定</h3>
+                    <ul>
+                        <li>使用标定板预先计算 H 矩阵</li>
+                        <li>3×3 变换矩阵</li>
+                        <li>[x', y', 1]ᵀ = H · [x, y, 1]ᵀ</li>
+                        <li>定期巡检更新参数</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🎯 ROI 精准裁剪</h3>
+                    <ul>
+                        <li>基于映射坐标裁剪箱号区域</li>
+                        <li>减少无效计算，提升速度</li>
+                        <li>增强 OCR 识别准确率</li>
+                        <li>降低背景干扰</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>⚡ 性能指标</h3>
+                    <ul>
+                        <li>系统响应：≤2 秒/车</li>
+                        <li>同步精度：&lt;10ms</li>
+                        <li>映射精度：像素级</li>
+                        <li>识别率：≥98%</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 红外光栅栏 -->
+        <section id="barrier" class="diagram-section hidden">
+            <h2>红外光栅栏车辆检测系统</h2>
+            <p>传统道闸系统中常用的红外光栅栏检测方案。通过多束平行红外光形成"光墙"，实现对车辆进出状态的实时监测，并提供关键的防砸保护功能。本方案与 AI 视觉方案形成技术对比。</p>
+            <div class="svg-container">
+                <object data="infrared_barrier.svg" type="image/svg+xml" width="100%">
+                    <img src="infrared_barrier.svg" alt="红外光栅栏示意图" style="width: 100%;">
+                </object>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📡 多光束检测架构</h3>
+                    <ul>
+                        <li>高位光束（1.2m）：检测车顶/大型车辆</li>
+                        <li>中位光束（0.8m）：检测车身/标准车辆</li>
+                        <li>低位光束（0.3m）：检测车尾/防砸保护</li>
+                        <li>光束间距可调，适应不同场景</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🛡️ 防砸保护机制</h3>
+                    <ul>
+                        <li>落闸过程中实时监测光束状态</li>
+                        <li>检测到遮挡立即停止或抬杆</li>
+                        <li>比地感线圈更灵敏（可检测悬空）</li>
+                        <li>响应时间 &lt; 100ms</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>⚖️ 与传统方案对比</h3>
+                    <ul>
+                        <li>优点：安装简单、成本低、防砸可靠</li>
+                        <li>缺点：无法识别箱号、需物理设备</li>
+                        <li>适用：单纯车辆检测场景</li>
+                        <li>AI 方案优势：一体化识别、无物理限制</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>© 2025 广州创飞人工智能技术有限公司 | Guangzhou Chuangfei AI Technology Co., Ltd.</p>
+            <p style="margin-top: 10px; font-size: 14px;">版本：V3.0 | 日期：2025 年 7 月</p>
+        </footer>
+    </div>
+    
+    <script>
+        function showSection(sectionId) {
+            // 隐藏所有 section
+            document.querySelectorAll('.diagram-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // 移除所有 tab 的 active 状态
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // 显示目标 section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+            
+            // 激活对应 tab
+            event.target.classList.add('active');
+            
+            // 平滑滚动到顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
