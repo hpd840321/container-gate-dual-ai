@@ -71,7 +71,7 @@
       <rect x="460" y="0" width="200" height="105" rx="8" fill="#e6f7ff" stroke="#4facfe" stroke-width="2"/>
       <text x="560" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">DeepSORT跟踪</text>
       <text x="560" y="50" text-anchor="middle" font-size="11" fill="#333">轨迹跟踪</text>
-      <text x="560" y="70" text-anchor="middle" font-size="10" fill="#666">横向并排双箱?</text>
+      <text x="560" y="70" text-anchor="middle" font-size="10" fill="#666">纵向排列双箱?</text>
       <text x="560" y="88" text-anchor="middle" font-size="10" fill="#666">进入最佳位置?</text>
       <text x="560" y="106" text-anchor="middle" font-size="10" fill="#0066cc" font-weight="bold">触发阶段二</text>
       

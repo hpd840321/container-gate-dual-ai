@@ -50,7 +50,7 @@
     5.5摄像头方案：侧壁安装模式（5基础+1辅助）
   </text>
   <text x="600" y="60" text-anchor="middle" font-size="14" fill="#666">
-    双20尺集装箱横向并排（后箱+前箱），道闸前后立柱安装，含C7辅助相机
+    双20尺集装箱纵向排列（后箱+前箱），道闸前后立柱安装，含C7辅助相机
   </text>
   
   <!-- 道闸前立柱（左侧） -->
@@ -133,7 +133,7 @@
     <text x="20" y="95" text-anchor="middle" font-size="9" fill="white">（入口）</text>
   </g>
   
-  <!-- 后箱（20尺）- 横向并排，靠上方，靠近车尾（左侧） -->
+  <!-- 后箱（20尺）- 纵向排列，靠上方，靠近车尾（左侧） -->
   <g transform="translate(350, 260)">
     <rect x="0" y="0" width="180" height="100" rx="8" fill="url(#containerGrad)" filter="url(#shadow)" opacity="0.9"/>
     <text x="90" y="40" text-anchor="middle" font-size="16" fill="white" font-weight="bold">20尺箱 A</text>
@@ -149,7 +149,7 @@
     <text x="32" y="85" text-anchor="middle" font-size="8" fill="white">ISO</text>
   </g>
   
-  <!-- 前箱（20尺）- 横向并排，靠下方，靠近车头（右侧） -->
+  <!-- 前箱（20尺）- 纵向排列，靠下方，靠近车头（右侧） -->
   <g transform="translate(550, 370)">
     <rect x="0" y="0" width="180" height="100" rx="8" fill="url(#containerGrad2)" filter="url(#shadow)" opacity="0.9"/>
     <text x="90" y="40" text-anchor="middle" font-size="16" fill="white" font-weight="bold">20尺箱 B</text>
@@ -165,7 +165,7 @@
     <text x="32" y="85" text-anchor="middle" font-size="8" fill="white">ISO</text>
   </g>
   
-  <!-- 横向并排示意 -->
+  <!-- 纵向排列示意 -->
   <g transform="translate(470, 362)">
     <line x1="0" y1="0" x2="0" y2="6" stroke="#4a5568" stroke-width="3"/>
     <text x="0" y="-8" text-anchor="middle" font-size="10" fill="#666">并排</text>
@@ -228,7 +228,7 @@
     <text x="90" y="20" text-anchor="middle" font-size="10" fill="#666">6m（20尺）</text>
   </g>
   
-  <!-- 总宽度标注（横向并排） -->
+  <!-- 总长度标注（纵向排列） -->
   <g transform="translate(370, 230)">
     <line x1="0" y1="0" x2="180" y2="0" stroke="#999" stroke-width="1"/>
     <line x1="0" y1="-5" x2="0" y2="5" stroke="#999" stroke-width="1"/>
@@ -261,7 +261,7 @@
     <text x="10" y="74" font-size="10" fill="#666">• C3: 左侧壁 1.5m, 6-8mm → 后箱OCR（靠近车尾）</text>
     <text x="10" y="90" font-size="10" fill="#666">• C4: 右侧壁 1.5m, 6-8mm → 前箱OCR（靠近车头）</text>
     <text x="10" y="106" font-size="10" fill="#dd6b20" font-weight="bold">• C7: 前侧方 3-4m, 6mm, 45°★辅助 → ISO码+锁杆</text>
-    <text x="10" y="122" font-size="9" fill="#999">注：横向双20尺箱，总宽约5m，可能略超3.5m车道</text>
+    <text x="10" y="122" font-size="9" fill="#999">注：纵向双20尺箱，总长约12m（6m×2）</text>
   </g>
   
   <!-- 优势说明面板 -->
