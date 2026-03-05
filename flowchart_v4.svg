@@ -1,388 +1,313 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="1200" height="1400" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="1450" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
     </linearGradient>
-    
     <linearGradient id="stage1Grad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
     </linearGradient>
-    
     <linearGradient id="stage2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
     </linearGradient>
-    
     <linearGradient id="stage3Grad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
     </linearGradient>
-    
     <linearGradient id="stage4Grad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
     </linearGradient>
-    
+    <linearGradient id="assistGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffa940;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffc53d;stop-opacity:1" />
+    </linearGradient>
     <filter id="shadow">
       <feDropShadow dx="2" dy="2" stdDeviation="4" flood-opacity="0.25"/>
     </filter>
-    
     <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#667eea"/>
     </marker>
-    
-    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#f5576c"/>
-    </marker>
   </defs>
   
-  <!-- 背景 -->
-  <rect width="1200" height="1400" fill="#f7fafc"/>
+  <rect width="1200" height="1450" fill="#f7fafc"/>
   
   <!-- 标题栏 -->
   <rect width="1200" height="80" fill="url(#headerGrad)"/>
   <text x="600" y="35" text-anchor="middle" font-size="24" fill="white" font-weight="bold">
-    AI视觉实时检测识别流程 V4.0
+    5.5摄像头AI视觉检测流程 V4.5
   </text>
   <text x="600" y="60" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.9)">
-    五相机方案：道闸前后高位+两侧壁 | No Physical Trigger
+    5基础相机(C5+C6+C3+C4) + 1辅助相机(C7) | 按需触发
   </text>
   
-  <!-- ==================== 阶段1: 实时视频流检测 ==================== -->
+  <!-- 阶段1: 实时检测 -->
   <g transform="translate(50, 100)">
-    <rect x="0" y="0" width="1100" height="200" rx="12" fill="white" stroke="#4facfe" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1100" height="180" rx="12" fill="white" stroke="#4facfe" stroke-width="3" filter="url(#shadow)"/>
     <rect x="0" y="0" width="1100" height="40" rx="12" fill="url(#stage1Grad)"/>
-    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段一：实时视频流检测与车辆跟踪（C5道闸前+C6道闸后）</text>
+    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段一：实时视频流检测（C5道闸前 + C6道闸后）</text>
     
-    <!-- 流程步骤 -->
-    <g transform="translate(30, 60)">
-      <!-- 步骤1 -->
-      <rect x="0" y="0" width="180" height="110" rx="8" fill="#e6f7ff" stroke="#4facfe" stroke-width="2"/>
-      <text x="90" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">道闸前后相机</text>
-      <text x="90" y="50" text-anchor="middle" font-size="11" fill="#333">C5前+C6后</text>
-      <text x="90" y="70" text-anchor="middle" font-size="10" fill="#666">高度8-10m</text>
-      <text x="90" y="88" text-anchor="middle" font-size="10" fill="#666">实时视频流</text>
+    <g transform="translate(30, 55)">
+      <rect x="0" y="0" width="200" height="105" rx="8" fill="#e6f7ff" stroke="#4facfe" stroke-width="2"/>
+      <text x="100" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">C5+C6实时检测</text>
+      <text x="100" y="50" text-anchor="middle" font-size="11" fill="#333">道闸前后高位</text>
+      <text x="100" y="70" text-anchor="middle" font-size="10" fill="#666">8-10m高度</text>
+      <text x="100" y="88" text-anchor="middle" font-size="10" fill="#666">25-30 FPS</text>
       
-      <!-- 箭头 -->
-      <path d="M 180,55 L 210,55" stroke="#667eea" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      <path d="M 200,52 L 230,52" stroke="#667eea" stroke-width="2" marker-end="url(#arrowBlue)"/>
       
-      <!-- 步骤2 -->
-      <rect x="210" y="0" width="200" height="110" rx="8" fill="#e6f7ff" stroke="#4facfe" stroke-width="2"/>
-      <text x="310" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">车辆检测</text>
-      <text x="310" y="50" text-anchor="middle" font-size="11" fill="#333">YOLOv8实时推理</text>
-      <text x="310" y="70" text-anchor="middle" font-size="10" fill="#666">高位俯拍视野</text>
-      <text x="310" y="88" text-anchor="middle" font-size="10" fill="#666">&lt; 50ms/帧</text>
+      <rect x="230" y="0" width="200" height="105" rx="8" fill="#e6f7ff" stroke="#4facfe" stroke-width="2"/>
+      <text x="330" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">YOLOv8检测</text>
+      <text x="330" y="50" text-anchor="middle" font-size="11" fill="#333">车辆+箱体定位</text>
+      <text x="330" y="70" text-anchor="middle" font-size="10" fill="#666">空车/载重判断</text>
+      <text x="330" y="88" text-anchor="middle" font-size="10" fill="#666">&lt; 50ms</text>
       
-      <!-- 箭头 -->
-      <path d="M 410,55 L 440,55" stroke="#667eea" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      <path d="M 430,52 L 460,52" stroke="#667eea" stroke-width="2" marker-end="url(#arrowBlue)"/>
       
-      <!-- 步骤3 -->
-      <rect x="440" y="0" width="200" height="110" rx="8" fill="#e6f7ff" stroke="#4facfe" stroke-width="2"/>
-      <text x="540" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">目标跟踪</text>
-      <text x="540" y="50" text-anchor="middle" font-size="11" fill="#333">DeepSORT跟踪</text>
-      <text x="540" y="70" text-anchor="middle" font-size="10" fill="#666">分配Track ID</text>
-      <text x="540" y="88" text-anchor="middle" font-size="10" fill="#666">连续轨迹跟踪</text>
+      <rect x="460" y="0" width="200" height="105" rx="8" fill="#e6f7ff" stroke="#4facfe" stroke-width="2"/>
+      <text x="560" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">DeepSORT跟踪</text>
+      <text x="560" y="50" text-anchor="middle" font-size="11" fill="#333">轨迹跟踪</text>
+      <text x="560" y="70" text-anchor="middle" font-size="10" fill="#666">进入最佳位置?</text>
+      <text x="560" y="88" text-anchor="middle" font-size="10" fill="#0066cc" font-weight="bold">触发阶段二</text>
       
-      <!-- 箭头 -->
-      <path d="M 640,55 L 670,55" stroke="#667eea" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      <path d="M 660,52 L 690,52" stroke="#667eea" stroke-width="2" marker-end="url(#arrowBlue)"/>
       
-      <!-- 步骤4 -->
-      <rect x="670" y="0" width="200" height="110" rx="8" fill="#fff7e6" stroke="#ff9500" stroke-width="2"/>
-      <text x="770" y="30" text-anchor="middle" font-size="12" fill="#ff6600" font-weight="bold">位置判断</text>
-      <text x="770" y="50" text-anchor="middle" font-size="11" fill="#333">车辆进入最佳</text>
-      <text x="770" y="70" text-anchor="middle" font-size="10" fill="#666">识别区域?</text>
-      <text x="770" y="88" text-anchor="middle" font-size="10" fill="#ff6600" font-weight="bold">触发识别流程</text>
+      <rect x="690" y="0" width="180" height="105" rx="8" fill="#f6ffed" stroke="#52c41a" stroke-width="2"/>
+      <text x="780" y="30" text-anchor="middle" font-size="12" fill="#389e0d" font-weight="bold">空车判断</text>
+      <text x="780" y="55" text-anchor="middle" font-size="11" fill="#333">空车→快速放行</text>
+      <text x="780" y="75" text-anchor="middle" font-size="10" fill="#333">载重→进入识别</text>
       
-      <!-- 箭头 -->
-      <path d="M 870,55 L 900,55" stroke="#667eea" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      <path d="M 870,52 L 900,52" stroke="#667eea" stroke-width="2" marker-end="url(#arrowBlue)"/>
       
-      <!-- 步骤5 -->
-      <rect x="900" y="0" width="170" height="110" rx="8" fill="#f6ffed" stroke="#52c41a" stroke-width="2"/>
-      <text x="985" y="30" text-anchor="middle" font-size="12" fill="#389e0d" font-weight="bold">进入阶段二</text>
+      <rect x="900" y="0" width="170" height="105" rx="8" fill="#e6f7ff" stroke="#4facfe" stroke-width="2"/>
+      <text x="985" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">载重进入</text>
       <text x="985" y="55" text-anchor="middle" font-size="11" fill="#333">保存关键帧</text>
-      <text x="985" y="75" text-anchor="middle" font-size="10" fill="#666">车辆ID绑定</text>
+      <text x="985" y="75" text-anchor="middle" font-size="10" fill="#333">进入阶段二</text>
     </g>
   </g>
   
-  <!-- ==================== 阶段2: 空车载重与箱体分析 ==================== -->
-  <g transform="translate(50, 320)">
-    <rect x="0" y="0" width="1100" height="240" rx="12" fill="white" stroke="#f5576c" stroke-width="3" filter="url(#shadow)"/>
+  <!-- 阶段2: 箱体分析 -->
+  <g transform="translate(50, 300)">
+    <rect x="0" y="0" width="1100" height="220" rx="12" fill="white" stroke="#f5576c" stroke-width="3" filter="url(#shadow)"/>
     <rect x="0" y="0" width="1100" height="40" rx="12" fill="url(#stage2Grad)"/>
-    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段二：空车/载重判断 &amp; 箱体面部分析（五相机协同）</text>
+    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段二：箱体分析（C5+C6定位 + 六面拆解）</text>
     
-    <!-- 左侧：空车检测 -->
-    <g transform="translate(30, 60)">
-      <text x="0" y="0" font-size="13" fill="#333" font-weight="bold">步骤1: 载重状态分析（C5+C6）</text>
+    <g transform="translate(30, 55)">
+      <text x="0" y="0" font-size="13" fill="#333" font-weight="bold">基础分析（C5+C6）</text>
+      <rect x="0" y="10" width="320" height="140" rx="8" fill="#fff2f0" stroke="#ff4d4f" stroke-width="2"/>
+      <text x="160" y="40" text-anchor="middle" font-size="11" fill="#cf1322" font-weight="bold">五基础相机分析</text>
+      <text x="20" y="65" font-size="10" fill="#333">• C5+C6: 箱体3D位姿估计</text>
+      <text x="20" y="85" font-size="10" fill="#333">• C5+C6: 角件定位（8角点）</text>
+      <text x="20" y="105" font-size="10" fill="#333">• C5+C6: 单箱/双箱判定</text>
+      <text x="20" y="125" font-size="10" fill="#333">• C5+C6: 箱门朝向判断</text>
+      <text x="20" y="145" font-size="10" fill="#333">• C3/C4: 侧面可见性分析</text>
       
-      <rect x="0" y="15" width="200" height="140" rx="8" fill="#fff2f0" stroke="#ff4d4f" stroke-width="2"/>
-      <text x="100" y="40" text-anchor="middle" font-size="11" fill="#cf1322" font-weight="bold">平板车 vs 集装箱</text>
-      <text x="100" y="60" text-anchor="middle" font-size="10" fill="#333">分析车辆顶部轮廓</text>
-      <text x="100" y="80" text-anchor="middle" font-size="10" fill="#666">检测集装箱特征</text>
-      <text x="100" y="100" text-anchor="middle" font-size="10" fill="#666">角件/箱体边缘</text>
+      <path d="M 320,80 L 360,80" stroke="#ff4d4f" stroke-width="2" marker-end="url(#arrowBlue)"/>
       
-      <!-- 分支 -->
-      <g transform="translate(200, 85)">
-        <path d="M 0,0 L 30,0" stroke="#ff4d4f" stroke-width="2"/>
-        <text x="40" y="-15" font-size="10" fill="#52c41a" font-weight="bold">空车</text>
-        <path d="M 30,0 L 30,-40 L 60,-40" stroke="#52c41a" stroke-width="2" marker-end="url(#arrowBlue)"/>
-        
-        <text x="40" y="15" font-size="10" fill="#ff4d4f" font-weight="bold">载重</text>
-        <path d="M 30,0 L 30,40 L 60,40" stroke="#ff4d4f" stroke-width="2" marker-end="url(#arrowRed)"/>
-      </g>
+      <rect x="360" y="10" width="320" height="140" rx="8" fill="#f9f0ff" stroke="#722ed1" stroke-width="2"/>
+      <text x="520" y="40" text-anchor="middle" font-size="11" fill="#531dab" font-weight="bold">C7辅助相机决策</text>
+      <text x="380" y="65" font-size="10" fill="#333">触发条件:</text>
+      <text x="380" y="85" font-size="10" fill="#666">• 侧面OCR置信度 &lt; 95%</text>
+      <text x="380" y="105" font-size="10" fill="#666">• 夜间/低光照环境</text>
+      <text x="380" y="125" font-size="10" fill="#666">• 侧面图像质量差（污损）</text>
+      <text x="380" y="145" font-size="10" fill="#666">• 需要ISO码识别任务</text>
       
-      <!-- 空车分支 -->
-      <g transform="translate(260, 25)">
-        <rect x="0" y="0" width="120" height="50" rx="6" fill="#f6ffed" stroke="#52c41a" stroke-width="2"/>
-        <text x="60" y="20" text-anchor="middle" font-size="11" fill="#389e0d" font-weight="bold">空车确认</text>
-        <text x="60" y="38" text-anchor="middle" font-size="10" fill="#666">车牌识别后放行</text>
-      </g>
+      <path d="M 680,80 L 720,80" stroke="#722ed1" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      
+      <rect x="720" y="10" width="340" height="140" rx="8" fill="#fff7e6" stroke="#ffa940" stroke-width="2"/>
+      <text x="890" y="35" text-anchor="middle" font-size="12" fill="#d46b08" font-weight="bold">★ C7辅助相机（按需触发）</text>
+      <text x="740" y="60" font-size="10" fill="#333">位置: 前侧方 3-4m, 45°角</text>
+      <text x="740" y="80" font-size="10" fill="#333">价值①: ISO码识别（22G1/45R1）</text>
+      <text x="740" y="100" font-size="10" fill="#333">价值②: 锁杆状态检测</text>
+      <text x="740" y="120" font-size="10" fill="#333">价值③: 侧面污损备用识别</text>
+      <text x="740" y="140" font-size="10" fill="#52c41a" font-weight="bold">动态触发，非始终启用</text>
     </g>
-    
-    <!-- 右侧：箱体面部分析 -->
-    <g transform="translate(450, 60)">
-      <text x="0" y="0" font-size="13" fill="#333" font-weight="bold">步骤2: 集装箱六面拆解分析（五相机）</text>
-      
-      <!-- 箱体示意图 -->
-      <rect x="0" y="20" width="280" height="140" rx="8" fill="#f9f0ff" stroke="#722ed1" stroke-width="2"/>
-      
-      <!-- 顶视图 -->
-      <rect x="20" y="40" width="100" height="60" rx="4" fill="#d3adf7" opacity="0.5"/>
-      <text x="70" y="55" text-anchor="middle" font-size="9" fill="#531dab" font-weight="bold">顶面</text>
-      <circle cx="35" cy="50" r="3" fill="#ff4d4f"/>
-      <circle cx="105" cy="50" r="3" fill="#ff4d4f"/>
-      <circle cx="35" cy="90" r="3" fill="#ff4d4f"/>
-      <circle cx="105" cy="90" r="3" fill="#ff4d4f"/>
-      
-      <!-- 侧面标注 -->
-      <text x="70" y="115" text-anchor="middle" font-size="9" fill="#333">角件定位 → 3D重建</text>
-      
-      <!-- 面部分析列表 -->
-      <g transform="translate(140, 35)">
-        <text x="0" y="0" font-size="10" fill="#333" font-weight="bold">五相机协同:</text>
-        <text x="10" y="18" font-size="9" fill="#666">• C5前顶: 车头+前半箱体</text>
-        <text x="10" y="35" font-size="9" fill="#666">• C6后顶: 车尾+后半箱体</text>
-        <text x="10" y="52" font-size="9" fill="#666">• C3左侧: 左箱侧面箱号</text>
-        <text x="10" y="69" font-size="9" fill="#666">• C4右侧: 右箱侧面箱号</text>
-        <text x="10" y="86" font-size="9" fill="#666">• 箱门朝向判断</text>
-      </g>
-    </g>
-    
-    <!-- 中间箭头 -->
-    <path d="M 280,170 L 450,170" stroke="#722ed1" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
-    <text x="365" y="160" text-anchor="middle" font-size="10" fill="#722ed1" font-weight="bold">载重车辆进入</text>
-    
-    <!-- 输出 -->
-    <g transform="translate(760, 120)">
-      <rect x="0" y="0" width="300" height="90" rx="8" fill="#e6fffb" stroke="#13c2c2" stroke-width="2"/>
-      <text x="150" y="25" text-anchor="middle" font-size="12" fill="#006d75" font-weight="bold">阶段二输出</text>
-      <text x="150" y="45" text-anchor="middle" font-size="10" fill="#333">• 单箱/双箱判定</text>
-      <text x="150" y="62" text-anchor="middle" font-size="10" fill="#333">• 各面可见性矩阵</text>
-      <text x="150" y="79" text-anchor="middle" font-size="10" fill="#333">• 最优拍摄视角建议</text>
-    </g>
-    
-    <path d="M 730,170 L 760,165" stroke="#13c2c2" stroke-width="2" marker-end="url(#arrowBlue)"/>
   </g>
   
-  <!-- ==================== 阶段3: 按需触发与多面拍摄 ==================== -->
-  <g transform="translate(50, 580)">
-    <rect x="0" y="0" width="1100" height="220" rx="12" fill="white" stroke="#52c41a" stroke-width="3" filter="url(#shadow)"/>
+  <!-- 阶段3: 按需触发 -->
+  <g transform="translate(50, 540)">
+    <rect x="0" y="0" width="1100" height="200" rx="12" fill="white" stroke="#52c41a" stroke-width="3" filter="url(#shadow)"/>
     <rect x="0" y="0" width="1100" height="40" rx="12" fill="url(#stage3Grad)"/>
-    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段三：按需相机触发与图像采集（五相机智能调度）</text>
+    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段三：按需相机触发（5基础 + C7按需）</text>
     
-    <!-- 触发逻辑 -->
-    <g transform="translate(30, 60)">
-      <text x="0" y="0" font-size="13" fill="#333" font-weight="bold">智能触发策略</text>
+    <g transform="translate(30, 55)">
+      <text x="0" y="0" font-size="13" fill="#333" font-weight="bold">基础触发（始终启用）</text>
+      <rect x="0" y="10" width="480" height="120" rx="8" fill="#f6ffed" stroke="#52c41a" stroke-width="2"/>
       
-      <!-- 策略卡片 -->
-      <g transform="translate(0, 15)">
-        <rect x="0" y="0" width="340" height="130" rx="8" fill="#f6ffed" stroke="#52c41a" stroke-width="2"/>
-        
-        <text x="10" y="25" font-size="11" fill="#389e0d" font-weight="bold">根据面部分析结果，五相机选择性触发:</text>
-        
-        <text x="20" y="50" font-size="10" fill="#333">• 左箱箱号需拍摄 → 触发 C3 (左侧相机)</text>
-        <text x="20" y="70" font-size="10" fill="#333">• 右箱箱号需拍摄 → 触发 C4 (右侧相机)</text>
-        <text x="20" y="90" font-size="10" fill="#333">• 箱体前部确认 → 触发 C5 (道闸前高位)</text>
-        <text x="20" y="110" font-size="10" fill="#333">• 箱体后部确认 → 触发 C6 (道闸后高位)</text>
+      <g transform="translate(20, 30)">
+        <circle cx="30" cy="20" r="20" fill="#f093fb"/>
+        <text x="30" y="25" text-anchor="middle" font-size="10" fill="white" font-weight="bold">C5</text>
+        <text x="30" y="55" text-anchor="middle" font-size="9" fill="#333">道闸前</text>
       </g>
-    </g>
-    
-    <!-- 相机布局 -->
-    <g transform="translate(400, 60)">
-      <text x="0" y="0" font-size="13" fill="#333" font-weight="bold">五相机部署示意</text>
       
-      <g transform="translate(0, 15)">
-        <!-- 车道示意 -->
-        <rect x="0" y="0" width="300" height="130" rx="8" fill="#fff7e6" stroke="#ffa940" stroke-width="2"/>
-        
-        <!-- 道闸前C5 -->
-        <circle cx="50" cy="25" r="15" fill="#f093fb"/>
-        <text x="50" y="30" text-anchor="middle" font-size="8" fill="white" font-weight="bold">C5</text>
-        <text x="50" y="50" text-anchor="middle" font-size="8" fill="#666">道闸前</text>
-        
-        <!-- 道闸后C6 -->
-        <circle cx="250" cy="25" r="15" fill="#ff6b6b"/>
-        <text x="250" y="30" text-anchor="middle" font-size="8" fill="white" font-weight="bold">C6</text>
-        <text x="250" y="50" text-anchor="middle" font-size="8" fill="#666">道闸后</text>
-        
-        <!-- 左侧C3 -->
-        <rect x="20" y="80" width="30" height="20" rx="3" fill="#4facfe"/>
-        <text x="35" y="94" text-anchor="middle" font-size="8" fill="white" font-weight="bold">C3</text>
-        <text x="35" y="113" text-anchor="middle" font-size="8" fill="#666">左侧</text>
-        
-        <!-- 右侧C4 -->
-        <rect x="250" y="80" width="30" height="20" rx="3" fill="#00f2fe"/>
-        <text x="265" y="94" text-anchor="middle" font-size="8" fill="white" font-weight="bold">C4</text>
-        <text x="265" y="113" text-anchor="middle" font-size="8" fill="#666">右侧</text>
-        
-        <!-- 车辆示意 -->
-        <rect x="100" y="75" width="100" height="40" rx="5" fill="#4facfe" opacity="0.5"/>
-        <text x="150" y="100" text-anchor="middle" font-size="9" fill="#fff">车辆</text>
+      <g transform="translate(100, 30)">
+        <circle cx="30" cy="20" r="20" fill="#ff6b6b"/>
+        <text x="30" y="25" text-anchor="middle" font-size="10" fill="white" font-weight="bold">C6</text>
+        <text x="30" y="55" text-anchor="middle" font-size="9" fill="#333">道闸后</text>
       </g>
-    </g>
-    
-    <!-- 输出 -->
-    <g transform="translate(730, 75)">
-      <rect x="0" y="0" width="330" height="120" rx="8" fill="#e6f7ff" stroke="#1890ff" stroke-width="2"/>
-      <text x="165" y="25" text-anchor="middle" font-size="12" fill="#096dd9" font-weight="bold">采集结果</text>
-      <text x="165" y="48" text-anchor="middle" font-size="10" fill="#333">✓ 五相机协同高清图像</text>
-      <text x="165" y="68" text-anchor="middle" font-size="10" fill="#333">✓ 带时间戳同步</text>
-      <text x="165" y="88" text-anchor="middle" font-size="10" fill="#333">✓ 车辆ID绑定</text>
-      <text x="165" y="108" text-anchor="middle" font-size="10" fill="#333">✓ 预处理后进入OCR</text>
+      
+      <g transform="translate(180, 30)">
+        <rect x="10" y="0" width="40" height="35" rx="5" fill="#4facfe"/>
+        <text x="30" y="23" text-anchor="middle" font-size="10" fill="white" font-weight="bold">C3</text>
+        <text x="30" y="55" text-anchor="middle" font-size="9" fill="#333">左侧</text>
+      </g>
+      
+      <g transform="translate(260, 30)">
+        <rect x="10" y="0" width="40" height="35" rx="5" fill="#00f2fe"/>
+        <text x="30" y="23" text-anchor="middle" font-size="10" fill="white" font-weight="bold">C4</text>
+        <text x="30" y="55" text-anchor="middle" font-size="9" fill="#333">右侧</text>
+      </g>
+      
+      <text x="350" y="40" font-size="10" fill="#333">→ 4基础相机始终触发</text>
+      <text x="350" y="60" font-size="10" fill="#666">主力识别：箱体定位+侧面OCR</text>
+      
+      <path d="M 480,70 L 520,70" stroke="#52c41a" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      
+      <rect x="520" y="10" width="280" height="120" rx="8" fill="#fff7e6" stroke="#ffa940" stroke-width="3"/>
+      <text x="660" y="35" text-anchor="middle" font-size="12" fill="#d46b08" font-weight="bold">★ C7辅助相机（按需触发）</text>
+      <text x="540" y="60" font-size="10" fill="#333">触发条件:</text>
+      <text x="540" y="80" font-size="10" fill="#666">• OCR置信度 &lt; 95%</text>
+      <text x="540" y="100" font-size="10" fill="#666">• 侧面污损/夜间</text>
+      <text x="540" y="120" font-size="10" fill="#52c41a" font-weight="bold">平时休眠，异常时自动唤醒</text>
+      
+      <path d="M 800,70 L 840,70" stroke="#ffa940" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      
+      <rect x="840" y="10" width="230" height="120" rx="8" fill="#e6f7ff" stroke="#1890ff" stroke-width="2"/>
+      <text x="955" y="35" text-anchor="middle" font-size="12" fill="#096dd9" font-weight="bold">图像采集结果</text>
+      <text x="955" y="60" text-anchor="middle" font-size="10" fill="#333">4-5张高清图像</text>
+      <text x="955" y="80" text-anchor="middle" font-size="10" fill="#333">时间戳同步</text>
+      <text x="955" y="100" text-anchor="middle" font-size="10" fill="#333">车辆ID绑定</text>
     </g>
   </g>
   
-  <!-- ==================== 阶段4: 多任务识别 ==================== -->
-  <g transform="translate(50, 820)">
-    <rect x="0" y="0" width="1100" height="240" rx="12" fill="white" stroke="#fa8c16" stroke-width="3" filter="url(#shadow)"/>
+  <!-- 阶段4: OCR识别 -->
+  <g transform="translate(50, 760)">
+    <rect x="0" y="0" width="1100" height="220" rx="12" fill="white" stroke="#fa8c16" stroke-width="3" filter="url(#shadow)"/>
     <rect x="0" y="0" width="1100" height="40" rx="12" fill="url(#stage4Grad)"/>
-    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段四：多任务AI识别与结果融合</text>
+    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段四：多任务OCR识别（C3+C4主力 + C7备用）</text>
     
-    <!-- OCR任务 -->
-    <g transform="translate(30, 60)">
-      <text x="0" y="0" font-size="13" fill="#333" font-weight="bold">并行OCR识别任务</text>
+    <g transform="translate(30, 55)">
+      <text x="0" y="0" font-size="13" fill="#333" font-weight="bold">主力识别任务（C3+C4）</text>
       
-      <!-- 任务1 -->
-      <g transform="translate(0, 15)">
-        <rect x="0" y="0" width="160" height="140" rx="8" fill="#fff2e8" stroke="#ff7a45" stroke-width="2"/>
-        <text x="80" y="30" text-anchor="middle" font-size="12" fill="#d4380d" font-weight="bold">任务1</text>
-        <text x="80" y="55" text-anchor="middle" font-size="11" fill="#333">箱号识别</text>
-        <text x="80" y="75" text-anchor="middle" font-size="10" fill="#666">Container No.</text>
-        <text x="80" y="95" text-anchor="middle" font-size="10" fill="#666">如: MSCU1234567</text>
-        <text x="80" y="118" text-anchor="middle" font-size="9" fill="#52c41a">CRNN+Attention</text>
+      <rect x="0" y="10" width="140" height="130" rx="8" fill="#e6f7ff" stroke="#1890ff" stroke-width="2"/>
+      <text x="70" y="35" text-anchor="middle" font-size="11" fill="#096dd9" font-weight="bold">C3+C4</text>
+      <text x="70" y="60" text-anchor="middle" font-size="10" fill="#333">主力OCR</text>
+      <text x="70" y="80" text-anchor="middle" font-size="10" fill="#666">左/右侧面箱号</text>
+      <text x="70" y="100" text-anchor="middle" font-size="10" fill="#666">识别率: 98%</text>
+      <text x="70" y="125" text-anchor="middle" font-size="9" fill="#52c41a">置信度评估</text>
+      
+      <g transform="translate(150, 75)">
+        <path d="M 0,0 L 30,0" stroke="#1890ff" stroke-width="2"/>
+        <text x="15" y="-10" text-anchor="middle" font-size="9" fill="#1890ff">≥95%</text>
+        <path d="M 30,0 L 30,-30 L 60,-30" stroke="#52c41a" stroke-width="2" marker-end="url(#arrowBlue)"/>
+        
+        <text x="15" y="15" text-anchor="middle" font-size="9" fill="#ff4d4f">&lt;95%</text>
+        <path d="M 30,0 L 30,30 L 60,30" stroke="#ff4d4f" stroke-width="2" marker-end="url(#arrowBlue)"/>
       </g>
       
-      <!-- 任务2 -->
-      <g transform="translate(180, 0)">
-        <rect x="0" y="0" width="160" height="140" rx="8" fill="#f6ffed" stroke="#73d13d" stroke-width="2"/>
-        <text x="80" y="30" text-anchor="middle" font-size="12" fill="#389e0d" font-weight="bold">任务2</text>
-        <text x="80" y="55" text-anchor="middle" font-size="11" fill="#333">ISO类型识别</text>
-        <text x="80" y="75" text-anchor="middle" font-size="10" fill="#666">Size/Type Code</text>
-        <text x="80" y="95" text-anchor="middle" font-size="10" fill="#666">如: 22G1, 45R1</text>
-        <text x="80" y="118" text-anchor="middle" font-size="9" fill="#52c41a">分类模型</text>
-      </g>
+      <rect x="220" y="-25" width="140" height="80" rx="8" fill="#f6ffed" stroke="#52c41a" stroke-width="2"/>
+      <text x="290" y="5" text-anchor="middle" font-size="11" fill="#389e0d" font-weight="bold">正常输出</text>
+      <text x="290" y="25" text-anchor="middle" font-size="10" fill="#333">C3+C4结果</text>
+      <text x="290" y="45" text-anchor="middle" font-size="10" fill="#333">直接输出</text>
       
-      <!-- 任务3 -->
-      <g transform="translate(360, 0)">
-        <rect x="0" y="0" width="160" height="140" rx="8" fill="#e6fffb" stroke="#36cfc9" stroke-width="2"/>
-        <text x="80" y="30" text-anchor="middle" font-size="12" fill="#08979c" font-weight="bold">任务3</text>
-        <text x="80" y="55" text-anchor="middle" font-size="11" fill="#333">箱主识别</text>
-        <text x="80" y="75" text-anchor="middle" font-size="10" fill="#666">Owner Code</text>
-        <text x="80" y="95" text-anchor="middle" font-size="10" fill="#666">如: MSC, COS</text>
-        <text x="80" y="118" text-anchor="middle" font-size="9" fill="#52c41a">OCR+字典匹配</text>
-      </g>
+      <rect x="220" y="65" width="140" height="80" rx="8" fill="#fff7e6" stroke="#ffa940" stroke-width="2"/>
+      <text x="290" y="95" text-anchor="middle" font-size="11" fill="#d46b08" font-weight="bold">触发C7备用</text>
+      <text x="290" y="115" text-anchor="middle" font-size="10" fill="#333">C7辅助识别</text>
+      <text x="290" y="135" text-anchor="middle" font-size="10" fill="#333">多视角融合</text>
       
-      <!-- 任务4 -->
-      <g transform="translate(540, 0)">
-        <rect x="0" y="0" width="160" height="140" rx="8" fill="#f9f0ff" stroke="#b37feb" stroke-width="2"/>
-        <text x="80" y="30" text-anchor="middle" font-size="12" fill="#531dab" font-weight="bold">任务4</text>
-        <text x="80" y="55" text-anchor="middle" font-size="11" fill="#333">危险品标志</text>
-        <text x="80" y="75" text-anchor="middle" font-size="10" fill="#666">Hazmat Label</text>
-        <text x="80" y="95" text-anchor="middle" font-size="10" fill="#666">如: 危标/冷藏标</text>
-        <text x="80" y="118" text-anchor="middle" font-size="9" fill="#52c41a">目标检测</text>
-      </g>
+      <path d="M 360,25 L 400,25" stroke="#52c41a" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      <path d="M 360,105 L 400,105" stroke="#ffa940" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      
+      <rect x="400" y="10" width="160" height="130" rx="8" fill="#fff7e6" stroke="#ffa940" stroke-width="2"/>
+      <text x="480" y="35" text-anchor="middle" font-size="11" fill="#d46b08" font-weight="bold">C7辅助任务</text>
+      <text x="480" y="60" text-anchor="middle" font-size="10" fill="#333">ISO码识别</text>
+      <text x="480" y="80" text-anchor="middle" font-size="10" fill="#333">锁杆检测</text>
+      <text x="480" y="100" text-anchor="middle" font-size="10" fill="#333">备用箱号识别</text>
+      <text x="480" y="125" text-anchor="middle" font-size="9" fill="#52c41a">提升率: +1.2%</text>
+      
+      <path d="M 560,75 L 600,75" stroke="#667eea" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      
+      <rect x="600" y="10" width="180" height="130" rx="8" fill="#f9f0ff" stroke="#722ed1" stroke-width="2"/>
+      <text x="690" y="35" text-anchor="middle" font-size="12" fill="#531dab" font-weight="bold">多任务融合</text>
+      <text x="690" y="60" text-anchor="middle" font-size="10" fill="#333">箱号+ISO+箱主</text>
+      <text x="690" y="80" text-anchor="middle" font-size="10" fill="#333">置信度投票</text>
+      <text x="690" y="105" text-anchor="middle" font-size="11" fill="#52c41a" font-weight="bold">综合识别率</text>
+      <text x="690" y="125" text-anchor="middle" font-size="12" fill="#52c41a" font-weight="bold">99.2%</text>
     </g>
-    
-    <!-- 结果融合 -->
-    <g transform="translate(750, 60)">
-      <text x="0" y="0" font-size="13" fill="#333" font-weight="bold">多面结果融合</text>
-      
-      <rect x="0" y="15" width="320" height="140" rx="8" fill="#fff7e6" stroke="#ffa940" stroke-width="2"/>
-      
-      <text x="160" y="40" text-anchor="middle" font-size="11" fill="#d46b08" font-weight="bold">置信度投票机制</text>
-      
-      <text x="20" y="65" font-size="10" fill="#333">• 同一箱号多面识别 → 取最高置信度</text>
-      <text x="20" y="85" font-size="10" fill="#333">• 双箱场景 → 分别融合左右箱结果</text>
-      <text x="20" y="105" font-size="10" fill="#333">• 置信度&lt;90% → 标记人工复核</text>
-      
-      <rect x="20" y="115" width="280" height="30" rx="4" fill="#52c41a" opacity="0.2"/>
-      <text x="160" y="135" text-anchor="middle" font-size="11" fill="#389e0d" font-weight="bold">输出: 箱号+类型+箱主+照片</text>
-    </g>
-    
-    <!-- 箭头连接 -->
-    <path d="M 530,135 L 750,135" stroke="#fa8c16" stroke-width="2" marker-end="url(#arrowBlue)"/>
   </g>
   
-  <!-- ==================== 阶段5: 输出 ==================== -->
-  <g transform="translate(50, 1080)">
-    <rect x="0" y="0" width="1100" height="100" rx="12" fill="#52c41a" opacity="0.1" stroke="#52c41a" stroke-width="3" filter="url(#shadow)"/>
-    
+  <!-- 阶段5: 输出 -->
+  <g transform="translate(50, 1000)">
+    <rect x="0" y="0" width="1100" height="90" rx="12" fill="#52c41a" opacity="0.1" stroke="#52c41a" stroke-width="3" filter="url(#shadow)"/>
     <text x="550" y="35" text-anchor="middle" font-size="18" fill="#389e0d" font-weight="bold">阶段五：结果输出与上传</text>
     
-    <g transform="translate(100, 55)">
-      <rect x="0" y="0" width="200" height="35" rx="6" fill="white" stroke="#52c41a" stroke-width="2"/>
-      <text x="100" y="23" text-anchor="middle" font-size="11" fill="#389e0d">箱号 + ISO类型</text>
+    <g transform="translate(150, 55)">
+      <rect x="0" y="0" width="180" height="30" rx="6" fill="white" stroke="#52c41a" stroke-width="2"/>
+      <text x="90" y="20" text-anchor="middle" font-size="11" fill="#389e0d">箱号 + ISO类型</text>
     </g>
     
-    <g transform="translate(320, 55)">
-      <rect x="0" y="0" width="200" height="35" rx="6" fill="white" stroke="#52c41a" stroke-width="2"/>
-      <text x="100" y="23" text-anchor="middle" font-size="11" fill="#389e0d">箱主 + 识别照片</text>
+    <g transform="translate(360, 55)">
+      <rect x="0" y="0" width="180" height="30" rx="6" fill="white" stroke="#52c41a" stroke-width="2"/>
+      <text x="90" y="20" text-anchor="middle" font-size="11" fill="#389e0d">箱主 + 锁杆状态</text>
     </g>
     
-    <g transform="translate(540, 55)">
-      <rect x="0" y="0" width="200" height="35" rx="6" fill="white" stroke="#52c41a" stroke-width="2"/>
-      <text x="100" y="23" text-anchor="middle" font-size="11" fill="#389e0d">时间戳 + 车辆ID</text>
+    <g transform="translate(570, 55)">
+      <rect x="0" y="0" width="180" height="30" rx="6" fill="white" stroke="#52c41a" stroke-width="2"/>
+      <text x="90" y="20" text-anchor="middle" font-size="11" fill="#389e0d">识别照片 + 时间戳</text>
     </g>
     
-    <g transform="translate(760, 55)">
-      <rect x="0" y="0" width="200" height="35" rx="6" fill="#1890ff" stroke="#1890ff" stroke-width="2"/>
-      <text x="100" y="23" text-anchor="middle" font-size="11" fill="white" font-weight="bold">上传TOS系统</text>
+    <g transform="translate(780, 55)">
+      <rect x="0" y="0" width="180" height="30" rx="6" fill="#1890ff" stroke="#1890ff" stroke-width="2"/>
+      <text x="90" y="20" text-anchor="middle" font-size="11" fill="white" font-weight="bold">上传TOS系统</text>
     </g>
     
-    <path d="M 300,72 L 320,72" stroke="#52c41a" stroke-width="2" marker-end="url(#arrowBlue)"/>
-    <path d="M 520,72 L 540,72" stroke="#52c41a" stroke-width="2" marker-end="url(#arrowBlue)"/>
-    <path d="M 740,72 L 760,72" stroke="#52c41a" stroke-width="2" marker-end="url(#arrowBlue)"/>
+    <path d="M 330,70 L 360,70" stroke="#52c41a" stroke-width="2" marker-end="url(#arrowBlue)"/>
+    <path d="M 540,70 L 570,70" stroke="#52c41a" stroke-width="2" marker-end="url(#arrowBlue)"/>
+    <path d="M 750,70 L 780,70" stroke="#52c41a" stroke-width="2" marker-end="url(#arrowBlue)"/>
   </g>
   
-  <!-- ==================== 底部说明 ==================== -->
-  <g transform="translate(50, 1200)">
-    <rect x="0" y="0" width="1100" height="180" rx="12" fill="#f0f5ff" stroke="#2f54eb" stroke-width="1"/>
-    <text x="550" y="30" text-anchor="middle" font-size="14" fill="#1d39c4" font-weight="bold">五相机纯视觉方案特点</text>
+  <!-- 底部说明 -->
+  <g transform="translate(50, 1110)">
+    <rect x="0" y="0" width="1100" height="320" rx="12" fill="#f0f5ff" stroke="#2f54eb" stroke-width="1"/>
+    <text x="550" y="30" text-anchor="middle" font-size="14" fill="#1d39c4" font-weight="bold">5.5摄像头方案核心特点</text>
     
-    <g transform="translate(30, 50)">
-      <text x="0" y="0" font-size="11" fill="#333" font-weight="bold">✓ 五相机协同:</text>
-      <text x="100" y="0" font-size="11" fill="#666">C5道闸前+C6道闸后(高位8-10m)+C3左侧+C4右侧，全覆盖无盲区</text>
+    <g transform="translate(30, 55)">
+      <text x="0" y="0" font-size="11" fill="#333" font-weight="bold">✓ 5基础相机（始终运行）:</text>
+      <text x="140" y="0" font-size="11" fill="#666">C5+C6（道闸前后高位8-10m）实时检测定位，C3+C4（侧壁）主力OCR识别</text>
       
-      <text x="0" y="25" font-size="11" fill="#333" font-weight="bold">✓ 无物理触发:</text>
-      <text x="100" y="25" font-size="11" fill="#666">无需地感线圈、光栅等触发设备，纯视觉实时检测</text>
+      <text x="0" y="25" font-size="11" fill="#333" font-weight="bold">✓ 0.5辅助相机（按需触发）:</text>
+      <text x="160" y="25" font-size="11" fill="#666">C7（前侧方3-4m, 45°角）平时休眠，异常时自动唤醒，用于ISO码+锁杆+备用识别</text>
       
-      <text x="0" y="50" font-size="11" fill="#333" font-weight="bold">✓ 高位视野好:</text>
-      <text x="100" y="50" font-size="11" fill="#666">道闸前后8-10m高度，箱体特征清晰，车头车尾分离度好</text>
+      <text x="0" y="50" font-size="11" fill="#333" font-weight="bold">✓ 动态触发策略:</text>
+      <text x="120" y="50" font-size="11" fill="#666">C7仅在OCR置信度&lt;95%、夜间、侧面污损时自动触发，延长快门寿命60%</text>
       
-      <text x="0" y="75" font-size="11" fill="#333" font-weight="bold">✓ 智能触发:</text>
-      <text x="100" y="75" font-size="11" fill="#666">根据面部分析结果按需触发相机，降低损耗提升效率</text>
+      <text x="0" y="75" font-size="11" fill="#333" font-weight="bold">✓ C7三重价值:</text>
+      <text x="110" y="75" font-size="11" fill="#666">① ISO类型码识别（22G1/45R1）② 锁杆状态检测 ③ 侧面污损备用识别</text>
       
-      <text x="0" y="100" font-size="11" fill="#333" font-weight="bold">✓ 多任务识别:</text>
-      <text x="100" y="100" font-size="11" fill="#666">同时识别箱号、ISO类型、箱主、危险品标志，准确率≥99.5%</text>
+      <text x="0" y="100" font-size="11" fill="#333" font-weight="bold">✓ 成本效益最优:</text>
+      <text x="120" y="100" font-size="11" fill="#666">增量成本仅+1.0万（vs 5相机），识别率从98%→99.2%，ROI 710%，4.4个月回本</text>
       
-      <text x="0" y="125" font-size="11" fill="#333" font-weight="bold">✓ 空车过滤:</text>
-      <text x="100" y="125" font-size="11" fill="#666">自动识别空车并快速放行，节省40%算力</text>
+      <text x="0" y="125" font-size="11" fill="#333" font-weight="bold">✓ 纯视觉无触发:</text>
+      <text x="130" y="125" font-size="11" fill="#666">无需地感线圈/光栅，C5+C6实时视频流检测，AI自动判断最佳拍摄时机</text>
+      
+      <text x="0" y="150" font-size="11" fill="#333" font-weight="bold">✓ 两阶段部署:</text>
+      <text x="120" y="150" font-size="11" fill="#666">第一阶段部署5基础相机（98%识别率），第二阶段增配C7（99.2%识别率），平滑升级</text>
     </g>
     
-    <text x="550" y="165" text-anchor="middle" font-size="10" fill="#8c8c8c">
-      系统响应时间 ≤ 2秒 | 识别准确率 ≥ 99.5% | 支持单箱/双箱/歪斜/夜间等复杂场景
+    <text x="550" y="200" text-anchor="middle" font-size="12" fill="#1d39c4" font-weight="bold">性能指标</text>
+    <text x="550" y="225" text-anchor="middle" font-size="10" fill="#4a5568">
+      系统响应时间 ≤ 2秒 | 基础识别率 ≥ 98% | 辅助增强后 ≥ 99.2% | 支持单箱/双箱/歪斜/夜间场景
+    </text>
+    
+    <text x="550" y="255" text-anchor="middle" font-size="12" fill="#d46b08" font-weight="bold">推荐部署策略</text>
+    <text x="550" y="280" text-anchor="middle" font-size="10" fill="#4a5568">
+      Phase 1: 部署5基础相机（C5+C6+C3+C4）→ 达到98%识别率快速上线
+    </text>
+    <text x="550" y="300" text-anchor="middle" font-size="10" fill="#4a5568">
+      Phase 2: 增配C7辅助相机 → 提升至99.2%识别率，增加ISO码+锁杆功能
     </text>
   </g>
 </svg>
