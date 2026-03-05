@@ -68,10 +68,10 @@
   <g transform="translate(0, 0)">
     <rect width="1200" height="70" fill="url(#headerGrad)"/>
     <text x="600" y="30" text-anchor="middle" font-size="22" fill="white" font-weight="bold">
-      5.5摄像头方案：头尾安装模式（两侧无空间）- 双20尺横向并排
+      5.5摄像头方案：头尾安装模式（两侧无空间）- 双20尺纵向排列
     </text>
     <text x="600" y="52" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.9)">
-      两个20尺集装箱横向并排（后箱+前箱），总宽约5m，C3/C4从前后方斜向拍摄
+      两个20尺集装箱纵向排列（后箱+前箱），总长12m，C3/C4从前后方斜向拍摄
     </text>
   </g>
   
@@ -114,7 +114,7 @@
       <text x="17" y="220" text-anchor="middle" font-size="13" fill="white" font-weight="bold" transform="rotate(-90, 17, 220)">道闸位置</text>
     </g>
     
-    <!-- ===== 双20尺集装箱 - 横向并排 ===== -->
+    <!-- ===== 双20尺集装箱 - 纵向排列 ===== -->
     <!-- 后箱（20尺，靠近入口侧/左侧） -->
     <g transform="translate(220, 110)">
       <rect x="0" y="0" width="220" height="140" rx="6" fill="url(#dualBoxGrad)" filter="url(#shadow)" opacity="0.95" stroke="#2d8a4e" stroke-width="2"/>
@@ -281,14 +281,14 @@
   <!-- ===== 覆盖逻辑说明（底部）===== -->
   <g transform="translate(30, 780)">
     <rect x="0" y="0" width="1140" height="105" fill="white" stroke="#e2e8f0" stroke-width="1.5" rx="6" filter="url(#shadow)"/>
-    <text x="570" y="22" text-anchor="middle" font-size="12" fill="#2d3748" font-weight="bold">5.5摄像头覆盖逻辑（头尾安装模式 - 双20尺横向并排）</text>
+    <text x="570" y="22" text-anchor="middle" font-size="12" fill="#2d3748" font-weight="bold">5.5摄像头覆盖逻辑（头尾安装模式 - 双20尺纵向排列）</text>
     
     <text x="15" y="42" font-size="10" fill="#4a5568">• C5(道闸前上方8-10m)：实时检测+车尾定位，俯拍车尾+后箱整体</text>
     <text x="15" y="57" font-size="10" fill="#4a5568">• C6(道闸后上方8-10m)：车头定位+箱型判断，俯拍前箱+车头整体</text>
     <text x="400" y="42" font-size="10" fill="#4a5568">• C3(道闸前侧方4m)：拍摄车辆前半部分，含后箱侧面，俯角30°</text>
     <text x="400" y="57" font-size="10" fill="#4a5568">• C4(道闸后侧方4m)：拍摄车辆后半部分，含前箱侧面，俯角30°</text>
     <text x="780" y="42" font-size="10" fill="#c92a2a" font-weight="bold">• C7(道闸前侧方低位3-4m)：★ 辅助相机 - 后箱门端ISO码+锁杆，45°角</text>
-    <text x="780" y="57" font-size="10" fill="#4a5568">• 双20尺横向并排：后箱(入口侧/车尾侧) + 前箱(出口侧/车头侧)，总宽约5m</text>
+    <text x="780" y="57" font-size="10" fill="#4a5568">• 双20尺纵向排列：后箱(入口侧/车尾侧) + 前箱(出口侧/车头侧)，总长12m</text>
     
     <text x="15" y="85" font-size="9" fill="#718096" font-style="italic">注：当两侧无安装空间时采用头尾安装模式；C3/C4分别从前后方向斜向拍摄；C7专门拍摄后箱门端细节和锁杆状态</text>
     <text x="15" y="100" font-size="9" fill="#718096" font-style="italic">     注意：C3在前侧方（靠近入口/左侧），拍前半部分（含后箱侧面）；C4在后侧方（靠近出口/右侧），拍后半部分（含前箱侧面）</text>
