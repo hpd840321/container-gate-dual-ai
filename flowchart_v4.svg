@@ -60,7 +60,7 @@
       <path d="M 200,52 L 230,52" stroke="#667eea" stroke-width="2" marker-end="url(#arrowBlue)"/>
       
       <rect x="230" y="0" width="200" height="105" rx="8" fill="#e6f7ff" stroke="#4facfe" stroke-width="2"/>
-      <text x="330" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">YOLOv8检测</text>
+      <text x="330" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">AI目标检测</text>
       <text x="330" y="50" text-anchor="middle" font-size="11" fill="#333">车辆+双箱定位</text>
       <text x="330" y="70" text-anchor="middle" font-size="10" fill="#666">后箱/前箱判定</text>
       <text x="330" y="88" text-anchor="middle" font-size="10" fill="#666">空车/载重判断</text>

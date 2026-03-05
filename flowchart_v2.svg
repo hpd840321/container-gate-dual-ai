@@ -122,7 +122,7 @@
     <!-- YOLOv5 检测 -->
     <g transform="translate(450, 60)">
       <rect x="0" y="0" width="300" height="60" rx="8" fill="url(#processGrad)" filter="url(#shadow)"/>
-      <text x="150" y="25" text-anchor="middle" font-size="13" fill="white" font-weight="bold">YOLOv5 模型检测</text>
+      <text x="150" y="25" text-anchor="middle" font-size="13" fill="white" font-weight="bold">AI目标检测</text>
       <text x="150" y="45" text-anchor="middle" font-size="12" fill="white">集装箱箱体/角件识别</text>
     </g>
     
