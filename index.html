@@ -244,7 +244,7 @@
         <!-- 模式一：侧壁安装 -->
         <section id="mode1" class="diagram-section">
             <h2>模式一：标准侧壁安装部署示意图</h2>
-            <p>适用于车道两侧有足够安装空间的场景。顶部相机（C5/C6）安装于龙门架高处（6 米），侧壁相机（C3/C4）安装于车道两侧（高度 1.5 米，距车道 3 米）。该模式下相机视野最佳，识别率最高。</p>
+            <p>适用于车道两侧有足够安装空间的场景。系统采用5个摄像头配置：顶部相机（C5/C6）安装于道闸前/后上方高位（8-10 米），侧壁相机（C3/C4）安装于车道两侧（高度 1.5 米，距车道 3 米）。该模式下相机视野最佳，识别率最高。</p>
             <div class="svg-container">
                 <object data="deployment_mode1.svg" type="image/svg+xml" width="100%">
                     <img src="deployment_mode1.svg" alt="模式一部署图" style="width: 100%;">
@@ -255,8 +255,9 @@
                     <h3>📷 顶部相机（C5/C6）</h3>
                     <ul>
                         <li>200 万像素，2.8mm 镜头</li>
-                        <li>安装高度：6 米，俯角 10°</li>
-                        <li>覆盖范围：6.5m × 4.8m</li>
+                        <li>C5：道闸前上方，高度8-10m</li>
+                        <li>C6：道闸后上方，高度8-10m</li>
+                        <li>高位俯拍，视野覆盖更广</li>
                         <li>负责箱体检测和定位</li>
                     </ul>
                 </div>
@@ -264,7 +265,8 @@
                     <h3>📷 侧壁相机（C3/C4）</h3>
                     <ul>
                         <li>复用现有 200 万像素相机</li>
-                        <li>安装高度：1.5 米</li>
+                        <li>C3：左侧壁，高度 1.5 米</li>
+                        <li>C4：右侧壁，高度 1.5 米</li>
                         <li>距车道边线：3 米</li>
                         <li>负责箱号 OCR 识别</li>
                     </ul>
@@ -284,7 +286,7 @@
         <!-- 模式二：头尾安装 -->
         <section id="mode2" class="diagram-section hidden">
             <h2>模式二：头尾安装部署示意图</h2>
-            <p>适用于车道两侧无安装空间，只能将相机装于车道前后方的场景。前向相机（C3）拍摄车辆前半部分（0~8 米），后向相机（C4）拍摄车辆后半部分（8~16 米），通过顶部相机判断箱号位置动态选择相机。</p>
+            <p>适用于车道两侧无安装空间，只能将相机装于车道前后方的场景。系统采用5个摄像头配置：顶部相机（C5/C6）安装于道闸前/后上方高位（8-10 米），侧方相机C3安装于道闸前侧方，C4安装于道闸后侧方，通过顶部相机判断箱号位置动态选择侧方相机进行识别。</p>
             <div class="svg-container">
                 <object data="deployment_mode2.svg" type="image/svg+xml" width="100%">
                     <img src="deployment_mode2.svg" alt="模式二部署图" style="width: 100%;">
@@ -292,27 +294,37 @@
             </div>
             <div class="info-grid">
                 <div class="info-card">
-                    <h3>📷 前向相机 C3</h3>
+                    <h3>📷 顶部相机 C5/C6</h3>
+                    <ul>
+                        <li>200 万像素，2.8mm 镜头</li>
+                        <li>C5：道闸前上方，高度8-10m</li>
+                        <li>C6：道闸后上方，高度8-10m</li>
+                        <li>高位俯拍，全景监控</li>
+                        <li>负责箱体检测和定位</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>📷 侧方相机 C3</h3>
                     <ul>
                         <li>200 万像素，6mm 镜头</li>
-                        <li>安装高度：4 米，俯角 30°</li>
-                        <li>覆盖范围：0~8 米（前半部分）</li>
+                        <li>安装位置：道闸前侧方</li>
+                        <li>覆盖范围：道闸前区域</li>
                         <li>负责箱号靠前时的识别</li>
                     </ul>
                 </div>
                 <div class="info-card">
-                    <h3>📷 后向相机 C4</h3>
+                    <h3>📷 侧方相机 C4</h3>
                     <ul>
                         <li>200 万像素，6mm 镜头</li>
-                        <li>安装高度：4 米，俯角 30°</li>
-                        <li>覆盖范围：8~16 米（后半部分）</li>
+                        <li>安装位置：道闸后侧方</li>
+                        <li>覆盖范围：道闸后区域</li>
                         <li>负责箱号靠后时的识别</li>
                     </ul>
                 </div>
                 <div class="info-card">
                     <h3>🎯 智能选择策略</h3>
                     <ul>
-                        <li>顶部相机判断箱门朝向</li>
+                        <li>道闸前后高位相机判断箱门朝向</li>
                         <li>动态选择 C3 或 C4 识别</li>
                         <li>也可融合两者结果提高鲁棒性</li>
                         <li>适应性强，不受侧面空间限制</li>
@@ -324,7 +336,7 @@
         <!-- 核心处理流程 -->
         <section id="flowchart" class="diagram-section hidden">
             <h2>核心 AI识别处理流程 V4.0（纯视觉实时检测）</h2>
-            <p>采用纯摄像头实时检测方案，无需地感线圈等物理触发设备。顶部相机持续视频流监控，YOLOv8实时检测车辆位置，DeepSORT持续跟踪，在最佳识别位置智能触发。支持空车/载重判断、集装箱六面拆解分析、按需相机触发、多任务OCR识别（箱号+ISO类型+箱主）。全流程响应时间≤2 秒，准确率≥99.5%。</p>
+            <p>采用5摄像头纯视觉实时检测方案，无需地感线圈等物理触发设备。道闸前后高位相机（C5/C6）持续视频流监控，YOLOv8实时检测车辆位置，DeepSORT持续跟踪，在最佳识别位置智能触发。支持空车/载重判断、集装箱六面拆解分析、按需相机触发、多任务OCR识别（箱号+ISO类型+箱主）。全流程响应时间≤2 秒，准确率≥99.5%。</p>
             <div class="svg-container">
                 <object data="flowchart.svg" type="image/svg+xml" width="100%">
                     <img src="flowchart.svg" alt="处理流程图 V4.0" style="width: 100%;">
@@ -404,7 +416,7 @@
         <!-- 视野覆盖与映射 -->
         <section id="coverage" class="diagram-section hidden">
             <h2>相机视野覆盖与坐标映射原理</h2>
-            <p>顶部相机垂直或略俯视拍摄，通过深度学习检测箱体位置、角点及箱门朝向，并计算箱号在侧壁图像中的映射区域。利用单应矩阵（Homography Matrix）实现从顶部图像坐标到侧壁图像坐标的精确转换。</p>
+            <p>顶部相机（C5/C6）安装于道闸前后高位（8-10米），采用高位俯拍方式拍摄，通过深度学习检测箱体位置、角点及箱门朝向，并计算箱号在侧壁图像中的映射区域。高位安装可提供更大的视野覆盖范围，减少遮挡，提升检测精度。利用单应矩阵（Homography Matrix）实现从顶部图像坐标到侧壁图像坐标的精确转换。</p>
             <div class="svg-container">
                 <object data="camera_coverage.svg" type="image/svg+xml" width="100%">
                     <img src="camera_coverage.svg" alt="视野覆盖图" style="width: 100%;">
