@@ -92,7 +92,6 @@
     <text x="820" y="255" text-anchor="start" font-size="11" fill="#ff4d4f" font-weight="bold">道闸位置</text>
     
     <!-- C5: 道闸前上方相机（粉色渐变）- 覆盖车头+前箱 -->
-    <g transform="translate="650" y="40")">
     <g transform="translate(650, 40)">
       <circle cx="0" cy="0" r="25" fill="url(#c5Grad)" filter="url(#shadow)"/>
       <text x="0" y="6" text-anchor="middle" font-size="12" fill="white" font-weight="bold">C5</text>

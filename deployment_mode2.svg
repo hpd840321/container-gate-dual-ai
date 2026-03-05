@@ -44,6 +44,10 @@
       <polygon points="0 0, 10 3.5, 0 7" fill="#667eea"/>
     </marker>
     
+    <marker id="arrowBlueDown" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="270">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#667eea"/>
+    </marker>
+    
     <marker id="arrowPink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#f5576c"/>
     </marker>
@@ -146,9 +150,9 @@
       <!-- 车头 -->
       <rect x="0" y="0" width="60" height="80" rx="8" fill="#4299e1" opacity="0.8" filter="url(#shadow)" stroke="#2b6cb0" stroke-width="2"/>
       <text x="30" y="45" text-anchor="middle" font-size="11" fill="white" font-weight="bold">车头</text>
-      <!-- 行驶方向箭头 -->
-      <polygon points="30,-15 45,0 30,-5 15,0" fill="#667eea"/>
-      <line x1="30" y1="-30" x2="30" y2="-5" stroke="#667eea" stroke-width="3" marker-end="url(#arrowBlue)"/>
+      <!-- 行驶方向箭头（向下指，与车头→车尾布局一致） -->
+      <polygon points="30,95 45,80 30,85 15,80" fill="#667eea"/>
+      <line x1="30" y1="80" x2="30" y2="110" stroke="#667eea" stroke-width="3" marker-end="url(#arrowBlue)"/>
     </g>
     
     <!-- 车尾示意 -->
