@@ -52,54 +52,65 @@
     
     <!-- 标题 -->
     <rect x="0" y="0" width="430" height="50" rx="12" fill="url(#dualBoxGrad)"/>
-    <text x="215" y="32" text-anchor="middle" font-size="18" fill="white" font-weight="bold">场景一：双 20 尺柜</text>
+    <text x="215" y="32" text-anchor="middle" font-size="18" fill="white" font-weight="bold">场景一：双 20 尺柜（纵向）</text>
     
-    <!-- 顶部相机视野区域 -->
+    <!-- 顶部相机视野区域 - 纵向排列布局 -->
     <g transform="translate(25, 80)">
-      <!-- C5 视野（拍到前箱） -->
-      <rect x="0" y="0" width="380" height="130" fill="rgba(240,147,251,0.15)" stroke="#f093fb" stroke-width="2" stroke-dasharray="5,5"/>
-      <text x="190" y="-10" text-anchor="middle" font-size="12" fill="#f093fb" font-weight="bold">C5 视野</text>
+      <!-- C5 视野（拍到后箱，靠近入口侧） -->
+      <rect x="0" y="0" width="190" height="220" fill="rgba(240,147,251,0.15)" stroke="#f093fb" stroke-width="2" stroke-dasharray="5,5"/>
+      <text x="95" y="-10" text-anchor="middle" font-size="12" fill="#f093fb" font-weight="bold">C5 视野</text>
+      <text x="95" y="15" text-anchor="middle" font-size="9" fill="#f093fb">（入口侧）</text>
       
-      <!-- C6 视野（拍到后箱） -->
-      <rect x="0" y="145" width="380" height="130" fill="rgba(245,87,108,0.15)" stroke="#f5576c" stroke-width="2" stroke-dasharray="5,5"/>
-      <text x="190" y="295" text-anchor="middle" font-size="12" fill="#f5576c" font-weight="bold">C6 视野</text>
+      <!-- C6 视野（拍到前箱，靠近出口侧） -->
+      <rect x="190" y="0" width="190" height="220" fill="rgba(245,87,108,0.15)" stroke="#f5576c" stroke-width="2" stroke-dasharray="5,5"/>
+      <text x="285" y="-10" text-anchor="middle" font-size="12" fill="#f5576c" font-weight="bold">C6 视野</text>
+      <text x="285" y="15" text-anchor="middle" font-size="9" fill="#f5576c">（出口侧）</text>
       
-      <!-- 分隔线 -->
-      <line x1="0" y1="135" x2="380" y2="135" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="5,3"/>
+      <!-- 垂直分隔线（C5/C6视野分界线） -->
+      <line x1="190" y1="0" x2="190" y2="220" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="5,3"/>
       
-      <!-- 前箱（20 尺，靠近车头） -->
-      <rect x="70" y="10" width="240" height="110" rx="8" fill="url(#single20Grad)" filter="url(#shadow)" opacity="0.9"/>
-      <text x="190" y="50" text-anchor="middle" font-size="13" fill="#1a535c" font-weight="bold">20 尺箱 A</text>
-      <text x="190" y="75" text-anchor="middle" font-size="11" fill="#1a535c">（前箱）</text>
-      <!-- 前箱侧面箱号（右侧） -->
-      <rect x="260" y="25" width="40" height="30" rx="3" fill="rgba(255,255,255,0.5)" stroke="white" stroke-width="2"/>
-      <text x="280" y="45" text-anchor="middle" font-size="9" fill="#1a535c">箱号</text>
+      <!-- 后箱（20 尺，靠近车尾，位于 C5 视野） -->
+      <rect x="15" y="50" width="160" height="90" rx="6" fill="url(#single20Grad)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="95" y="85" text-anchor="middle" font-size="12" fill="#1a535c" font-weight="bold">20 尺箱 - 后箱</text>
+      <text x="95" y="105" text-anchor="middle" font-size="10" fill="#1a535c">（靠近车尾）</text>
+      <!-- 后箱侧面箱号 -->
+      <rect x="20" y="60" width="40" height="25" rx="3" fill="rgba(255,255,255,0.6)" stroke="white" stroke-width="1.5"/>
+      <text x="40" y="77" text-anchor="middle" font-size="8" fill="#1a535c" font-weight="bold">箱号</text>
       
-      <!-- 后箱（20 尺，靠近车尾） -->
-      <rect x="70" y="155" width="240" height="110" rx="8" fill="url(#single20Grad)" filter="url(#shadow)" opacity="0.9"/>
-      <text x="190" y="195" text-anchor="middle" font-size="13" fill="#1a535c" font-weight="bold">20 尺箱 B</text>
-      <text x="190" y="220" text-anchor="middle" font-size="11" fill="#1a535c">（后箱）</text>
-      <!-- 后箱侧面箱号（左侧） -->
-      <rect x="80" y="170" width="40" height="30" rx="3" fill="rgba(255,255,255,0.5)" stroke="white" stroke-width="2"/>
-      <text x="100" y="190" text-anchor="middle" font-size="9" fill="#1a535c">箱号</text>
+      <!-- 前箱（20 尺，靠近车头，位于 C6 视野） -->
+      <rect x="205" y="50" width="160" height="90" rx="6" fill="url(#single20Grad)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="285" y="85" text-anchor="middle" font-size="12" fill="#1a535c" font-weight="bold">20 尺箱 - 前箱</text>
+      <text x="285" y="105" text-anchor="middle" font-size="10" fill="#1a535c">（靠近车头）</text>
+      <!-- 前箱侧面箱号 -->
+      <rect x="320" y="60" width="40" height="25" rx="3" fill="rgba(255,255,255,0.6)" stroke="white" stroke-width="1.5"/>
+      <text x="340" y="77" text-anchor="middle" font-size="8" fill="#1a535c" font-weight="bold">箱号</text>
       
-      <!-- 连接标识 -->
-      <line x1="150" y1="120" x2="150" y2="155" stroke="#1a535c" stroke-width="2"/>
-      <line x1="230" y1="120" x2="230" y2="155" stroke="#1a535c" stroke-width="2"/>
-      <text x="190" y="142" text-anchor="middle" font-size="9" fill="#1a535c">连接处</text>
+      <!-- 连接标识（两箱之间） -->
+      <line x1="175" y1="85" x2="205" y2="85" stroke="#1a535c" stroke-width="3"/>
+      <polygon points="185,80 195,85 185,90" fill="#1a535c"/>
+      <polygon points="195,80 185,85 195,90" fill="#1a535c"/>
+      <text x="190" y="105" text-anchor="middle" font-size="8" fill="#1a535c">连接</text>
       
-      <!-- 方向标识 -->
-      <polygon points="20,65 35,55 35,60 45,60 45,70 35,70 35,75" fill="#667eea"/>
-      <text x="35" y="95" text-anchor="middle" font-size="10" fill="#667eea" font-weight="bold">车头</text>
+      <!-- 行驶方向箭头 -->
+      <line x1="40" y1="175" x2="350" y2="175" stroke="#667eea" stroke-width="3" marker-end="url(#arrowBlue)"/>
+      <text x="195" y="200" text-anchor="middle" font-size="11" fill="#667eea" font-weight="bold">行驶方向 →</text>
+      
+      <!-- 车头方向 -->
+      <polygon points="365,165 380,155 380,160 390,160 390,175 365,175" fill="#667eea"/>
+      <polygon points="365,185 380,195 380,190 390,190 390,175 365,175" fill="#667eea"/>
+      <text x="380" y="210" text-anchor="middle" font-size="10" fill="#667eea" font-weight="bold">车头</text>
+      
+      <!-- 纵向排列标注 -->
+      <text x="195" y="240" text-anchor="middle" font-size="11" fill="#f5576c" font-weight="bold">纵向排列：后箱 → 前箱</text>
     </g>
     
     <!-- 特征说明 -->
     <g transform="translate(25, 380)">
       <text x="0" y="0" font-size="13" fill="#333" font-weight="bold">检测特征：</text>
       <text x="15" y="25" font-size="11" fill="#666">• AI 检测到两个独立箱体边界框</text>
-      <text x="15" y="45" font-size="11" fill="#666">• 前箱+后箱纵向连接排列</text>
-      <text x="15" y="65" font-size="11" fill="#666">• C5 拍摄前箱，C6 拍摄后箱</text>
-      <text x="15" y="85" font-size="11" fill="#666">• 两箱侧面箱号可能在左或右侧</text>
+      <text x="15" y="45" font-size="11" fill="#666">• 后箱+前箱沿行驶方向纵向排列</text>
+      <text x="15" y="65" font-size="11" fill="#666">• C5 拍后箱（入口侧），C6 拍前箱（出口侧）</text>
+      <text x="15" y="85" font-size="11" fill="#666">• 车头在行驶方向前方，车尾在后方</text>
     </g>
   </g>
   
@@ -129,9 +140,18 @@
       <rect x="145" y="70" width="30" height="25" rx="3" fill="rgba(255,255,255,0.4)" stroke="white" stroke-width="2"/>
       <text x="160" y="87" text-anchor="middle" font-size="8" fill="#1a535c">箱号</text>
       
+      <!-- 行驶方向箭头 -->
+      <line x1="40" y1="260" x2="320" y2="260" stroke="#667eea" stroke-width="3" marker-end="url(#arrowBlue)"/>
+      <text x="180" y="285" text-anchor="middle" font-size="11" fill="#667eea" font-weight="bold">行驶方向 →</text>
+      
+      <!-- 车头方向 -->
+      <polygon points="335,250 350,240 350,245 360,245 360,260 335,260" fill="#667eea"/>
+      <polygon points="335,270 350,280 350,275 360,275 360,260 335,260" fill="#667eea"/>
+      <text x="350" y="300" text-anchor="middle" font-size="10" fill="#667eea" font-weight="bold">车头</text>
+      
       <!-- 中心线标识 -->
       <line x1="177" y1="0" x2="177" y2="280" stroke="#cbd5e0" stroke-width="2" stroke-dasharray="5,5"/>
-      <text x="182" y="270" text-anchor="start" font-size="9" fill="#a0aec0">车道中心线</text>
+      <text x="182" y="240" text-anchor="start" font-size="9" fill="#a0aec0">车道中心线</text>
     </g>
     
     <!-- 特征说明 -->
@@ -172,6 +192,15 @@
       <rect x="255" y="60" width="60" height="40" rx="4" fill="rgba(255,255,255,0.4)" stroke="white" stroke-width="2"/>
       <text x="285" y="85" text-anchor="middle" font-size="9" fill="#1a535c" font-weight="bold">箱号区</text>
       
+      <!-- 行驶方向箭头 -->
+      <line x1="40" y1="260" x2="320" y2="260" stroke="#667eea" stroke-width="3" marker-end="url(#arrowBlue)"/>
+      <text x="180" y="285" text-anchor="middle" font-size="11" fill="#667eea" font-weight="bold">行驶方向 →</text>
+      
+      <!-- 车头方向 -->
+      <polygon points="335,250 350,240 350,245 360,245 360,260 335,260" fill="#667eea"/>
+      <polygon points="335,270 350,280 350,275 360,275 360,260 335,260" fill="#667eea"/>
+      <text x="350" y="300" text-anchor="middle" font-size="10" fill="#667eea" font-weight="bold">车头</text>
+      
       <!-- 关联标识 -->
       <path d="M 90,20 L 90,5 M 265,20 L 265,5" stroke="#1a535c" stroke-width="2"/>
       <line x1="90" y1="5" x2="265" y2="5" stroke="#1a535c" stroke-width="2" marker-end="url(#arrowBlue)" marker-start="url(#arrowBlue)"/>
@@ -198,7 +227,7 @@
     
     <!-- 表头列名 -->
     <text x="90" y="75" font-size="12" fill="#333" font-weight="bold">对比维度</text>
-    <text x="360" y="75" font-size="12" fill="#f5576c" font-weight="bold">双 20 尺柜（前+后）</text>
+    <text x="360" y="75" font-size="12" fill="#f5576c" font-weight="bold">双 20 尺柜（纵向）</text>
     <text x="720" y="75" font-size="12" fill="#00f2fe" font-weight="bold">单 20 尺柜</text>
     <text x="1080" y="75" font-size="12" fill="#38f9d7" font-weight="bold">单 40 尺柜</text>
     
@@ -207,21 +236,21 @@
     
     <!-- 行 1：箱体数量 -->
     <text x="90" y="115" font-size="11" fill="#333" font-weight="bold">检测到箱体数量</text>
-    <text x="360" y="115" font-size="11" fill="#666">两个独立箱体（纵向）</text>
+    <text x="360" y="115" font-size="11" fill="#666">两个独立箱体（沿行驶方向纵向）</text>
     <text x="720" y="115" font-size="11" fill="#666">一个独立箱体</text>
     <text x="1080" y="115" font-size="11" fill="#666">一个长箱体（跨视野）</text>
     <line x1="40" y1="125" x2="1310" y2="125" stroke="#e2e8f0" stroke-width="1"/>
     
     <!-- 行 2：箱体长度 -->
     <text x="90" y="155" font-size="11" fill="#333" font-weight="bold">计算长度</text>
-    <text x="360" y="155" font-size="11" fill="#666">每个约 6 米（前+后）</text>
+    <text x="360" y="155" font-size="11" fill="#666">每个约 6 米（后箱+前箱纵向）</text>
     <text x="720" y="155" font-size="11" fill="#666">约 6 米</text>
     <text x="1080" y="155" font-size="11" fill="#666">约 12 米</text>
     <line x1="40" y1="165" x2="1310" y2="165" stroke="#e2e8f0" stroke-width="1"/>
     
     <!-- 行 3：相机选择策略 -->
     <text x="90" y="195" font-size="11" fill="#333" font-weight="bold">侧壁相机选择</text>
-    <text x="360" y="195" font-size="11" fill="#666">C5拍前箱，C6拍后箱</text>
+    <text x="360" y="195" font-size="11" fill="#666">C5 拍后箱（入口侧），C6 拍前箱（出口侧）</text>
     <text x="720" y="195" font-size="11" fill="#666">根据中心线偏向</text>
     <text x="1080" y="195" font-size="11" fill="#666">通常选择右侧相机</text>
     <line x1="40" y1="205" x2="1310" y2="205" stroke="#e2e8f0" stroke-width="1"/>

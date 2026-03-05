@@ -41,37 +41,39 @@
     5.5摄像头AI视觉检测流程 V4.5
   </text>
   <text x="600" y="60" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.9)">
-    5基础相机(C5+C6+C3+C4) + 1辅助相机(C7) | 按需触发
+    行驶方向：从左到右 | 车尾→后箱→前箱→车头 | 5基础相机(C5+C6+C3+C4) + 1辅助相机(C7)
   </text>
   
   <!-- 阶段1: 实时检测 -->
   <g transform="translate(50, 100)">
     <rect x="0" y="0" width="1100" height="180" rx="12" fill="white" stroke="#4facfe" stroke-width="3" filter="url(#shadow)"/>
     <rect x="0" y="0" width="1100" height="40" rx="12" fill="url(#stage1Grad)"/>
-    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段一：实时视频流检测（C5道闸前 + C6道闸后）</text>
+    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段一：实时视频流检测（C5道闸前拍入口侧 + C6道闸后拍出口侧）</text>
     
     <g transform="translate(30, 55)">
       <rect x="0" y="0" width="200" height="105" rx="8" fill="#e6f7ff" stroke="#4facfe" stroke-width="2"/>
       <text x="100" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">C5+C6实时检测</text>
-      <text x="100" y="50" text-anchor="middle" font-size="11" fill="#333">车头+前箱/后箱+车尾</text>
-      <text x="100" y="70" text-anchor="middle" font-size="10" fill="#666">8-10m高度</text>
-      <text x="100" y="88" text-anchor="middle" font-size="10" fill="#666">25-30 FPS</text>
+      <text x="100" y="50" text-anchor="middle" font-size="11" fill="#333">C5: 车尾+后箱(入口侧)</text>
+      <text x="100" y="68" text-anchor="middle" font-size="11" fill="#333">C6: 前箱+车头(出口侧)</text>
+      <text x="100" y="85" text-anchor="middle" font-size="10" fill="#666">8-10m高度 25-30 FPS</text>
       
       <path d="M 200,52 L 230,52" stroke="#667eea" stroke-width="2" marker-end="url(#arrowBlue)"/>
       
       <rect x="230" y="0" width="200" height="105" rx="8" fill="#e6f7ff" stroke="#4facfe" stroke-width="2"/>
       <text x="330" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">YOLOv8检测</text>
-      <text x="330" y="50" text-anchor="middle" font-size="11" fill="#333">车辆+箱体定位</text>
-      <text x="330" y="70" text-anchor="middle" font-size="10" fill="#666">空车/载重判断</text>
-      <text x="330" y="88" text-anchor="middle" font-size="10" fill="#666">&lt; 50ms</text>
+      <text x="330" y="50" text-anchor="middle" font-size="11" fill="#333">车辆+双箱定位</text>
+      <text x="330" y="70" text-anchor="middle" font-size="10" fill="#666">后箱/前箱判定</text>
+      <text x="330" y="88" text-anchor="middle" font-size="10" fill="#666">空车/载重判断</text>
+      <text x="330" y="102" text-anchor="middle" font-size="10" fill="#666">&lt; 50ms</text>
       
       <path d="M 430,52 L 460,52" stroke="#667eea" stroke-width="2" marker-end="url(#arrowBlue)"/>
       
       <rect x="460" y="0" width="200" height="105" rx="8" fill="#e6f7ff" stroke="#4facfe" stroke-width="2"/>
       <text x="560" y="30" text-anchor="middle" font-size="12" fill="#0066cc" font-weight="bold">DeepSORT跟踪</text>
       <text x="560" y="50" text-anchor="middle" font-size="11" fill="#333">轨迹跟踪</text>
-      <text x="560" y="70" text-anchor="middle" font-size="10" fill="#666">进入最佳位置?</text>
-      <text x="560" y="88" text-anchor="middle" font-size="10" fill="#0066cc" font-weight="bold">触发阶段二</text>
+      <text x="560" y="70" text-anchor="middle" font-size="10" fill="#666">横向并排双箱?</text>
+      <text x="560" y="88" text-anchor="middle" font-size="10" fill="#666">进入最佳位置?</text>
+      <text x="560" y="106" text-anchor="middle" font-size="10" fill="#0066cc" font-weight="bold">触发阶段二</text>
       
       <path d="M 660,52 L 690,52" stroke="#667eea" stroke-width="2" marker-end="url(#arrowBlue)"/>
       
@@ -93,7 +95,7 @@
   <g transform="translate(50, 300)">
     <rect x="0" y="0" width="1100" height="220" rx="12" fill="white" stroke="#f5576c" stroke-width="3" filter="url(#shadow)"/>
     <rect x="0" y="0" width="1100" height="40" rx="12" fill="url(#stage2Grad)"/>
-    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段二：箱体分析（C5+C6定位 + 六面拆解）</text>
+    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段二：箱体分析（区分后箱入口侧 + 前箱出口侧 + 六面拆解）</text>
     
     <g transform="translate(30, 55)">
       <text x="0" y="0" font-size="13" fill="#333" font-weight="bold">基础分析（C5+C6）</text>
@@ -101,9 +103,9 @@
       <text x="160" y="40" text-anchor="middle" font-size="11" fill="#cf1322" font-weight="bold">五基础相机分析</text>
       <text x="20" y="65" font-size="10" fill="#333">• C5+C6: 箱体3D位姿估计</text>
       <text x="20" y="85" font-size="10" fill="#333">• C5+C6: 角件定位（8角点）</text>
-      <text x="20" y="105" font-size="10" fill="#333">• C5+C6: 单箱/双箱判定</text>
+      <text x="20" y="105" font-size="10" fill="#333">• C5: 后箱(入口侧) | C6: 前箱(出口侧)</text>
       <text x="20" y="125" font-size="10" fill="#333">• C5+C6: 箱门朝向判断</text>
-      <text x="20" y="145" font-size="10" fill="#333">• C3/C4: 侧面可见性分析</text>
+      <text x="20" y="145" font-size="10" fill="#333">• C3: 后箱侧面 | C4: 前箱侧面</text>
       
       <path d="M 320,80 L 360,80" stroke="#ff4d4f" stroke-width="2" marker-end="url(#arrowBlue)"/>
       
@@ -152,17 +154,18 @@
       <g transform="translate(180, 30)">
         <rect x="10" y="0" width="40" height="35" rx="5" fill="#4facfe"/>
         <text x="30" y="23" text-anchor="middle" font-size="10" fill="white" font-weight="bold">C3</text>
-        <text x="30" y="55" text-anchor="middle" font-size="9" fill="#333">前箱侧面</text>
+        <text x="30" y="55" text-anchor="middle" font-size="9" fill="#333">后箱侧面</text>
       </g>
       
       <g transform="translate(260, 30)">
         <rect x="10" y="0" width="40" height="35" rx="5" fill="#00f2fe"/>
         <text x="30" y="23" text-anchor="middle" font-size="10" fill="white" font-weight="bold">C4</text>
-        <text x="30" y="55" text-anchor="middle" font-size="9" fill="#333">后箱侧面</text>
+        <text x="30" y="55" text-anchor="middle" font-size="9" fill="#333">前箱侧面</text>
       </g>
       
       <text x="350" y="40" font-size="10" fill="#333">→ 4基础相机始终触发</text>
-      <text x="350" y="60" font-size="10" fill="#666">主力识别：箱体定位+侧面OCR</text>
+      <text x="350" y="60" font-size="10" fill="#666">C5:车尾+后箱 | C6:前箱+车头</text>
+      <text x="350" y="80" font-size="10" fill="#666">C3:后箱侧面 | C4:前箱侧面</text>
       
       <path d="M 480,70 L 520,70" stroke="#52c41a" stroke-width="2" marker-end="url(#arrowBlue)"/>
       
@@ -187,15 +190,15 @@
   <g transform="translate(50, 760)">
     <rect x="0" y="0" width="1100" height="220" rx="12" fill="white" stroke="#fa8c16" stroke-width="3" filter="url(#shadow)"/>
     <rect x="0" y="0" width="1100" height="40" rx="12" fill="url(#stage4Grad)"/>
-    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段四：多任务OCR识别（C3+C4主力 + C7备用）</text>
+    <text x="550" y="28" text-anchor="middle" font-size="16" fill="white" font-weight="bold">阶段四：多任务OCR识别（C3后箱+C4前箱主力 + C7备用）</text>
     
     <g transform="translate(30, 55)">
-      <text x="0" y="0" font-size="13" fill="#333" font-weight="bold">主力识别任务（C3+C4）</text>
+      <text x="0" y="0" font-size="13" fill="#333" font-weight="bold">主力识别任务（C3后箱+C4前箱）</text>
       
       <rect x="0" y="10" width="140" height="130" rx="8" fill="#e6f7ff" stroke="#1890ff" stroke-width="2"/>
       <text x="70" y="35" text-anchor="middle" font-size="11" fill="#096dd9" font-weight="bold">C3+C4</text>
       <text x="70" y="60" text-anchor="middle" font-size="10" fill="#333">主力OCR</text>
-      <text x="70" y="80" text-anchor="middle" font-size="10" fill="#666">前/后箱箱号</text>
+      <text x="70" y="80" text-anchor="middle" font-size="10" fill="#666">后箱/前箱箱号</text>
       <text x="70" y="100" text-anchor="middle" font-size="10" fill="#666">识别率: 98%</text>
       <text x="70" y="125" text-anchor="middle" font-size="9" fill="#52c41a">置信度评估</text>
       
@@ -272,42 +275,42 @@
   <!-- 底部说明 -->
   <g transform="translate(50, 1110)">
     <rect x="0" y="0" width="1100" height="320" rx="12" fill="#f0f5ff" stroke="#2f54eb" stroke-width="1"/>
-    <text x="550" y="30" text-anchor="middle" font-size="14" fill="#1d39c4" font-weight="bold">5.5摄像头方案核心特点</text>
+    <text x="550" y="30" text-anchor="middle" font-size="14" fill="#1d39c4" font-weight="bold">5.5摄像头方案核心特点（行驶方向：从左到右）</text>
     
     <g transform="translate(30, 55)">
-      <text x="0" y="0" font-size="11" fill="#333" font-weight="bold">✓ 5基础相机（始终运行）:</text>
-      <text x="140" y="0" font-size="11" fill="#666">C5+C6（道闸前后高位8-10m）实时检测定位，C3+C4（侧壁）主力OCR识别</text>
+      <text x="0" y="0" font-size="11" fill="#333" font-weight="bold">✓ 车辆结构（从左到右）:</text>
+      <text x="150" y="0" font-size="11" fill="#666">车尾 → 后箱（入口侧）→ 前箱（出口侧）→ 车头</text>
       
-      <text x="0" y="25" font-size="11" fill="#333" font-weight="bold">✓ 0.5辅助相机（按需触发）:</text>
-      <text x="160" y="25" font-size="11" fill="#666">C7（前侧方3-4m, 45°角）平时休眠，异常时自动唤醒，用于ISO码+锁杆+备用识别</text>
+      <text x="0" y="25" font-size="11" fill="#333" font-weight="bold">✓ 5基础相机（始终运行）:</text>
+      <text x="160" y="25" font-size="11" fill="#666">C5（道闸前）:车尾+后箱 | C6（道闸后）:前箱+车头 | C3:后箱侧面 | C4:前箱侧面</text>
       
-      <text x="0" y="50" font-size="11" fill="#333" font-weight="bold">✓ 动态触发策略:</text>
-      <text x="120" y="50" font-size="11" fill="#666">C7仅在OCR置信度&lt;95%、夜间、侧面污损时自动触发，延长快门寿命60%</text>
+      <text x="0" y="50" font-size="11" fill="#333" font-weight="bold">✓ 0.5辅助相机（按需触发）:</text>
+      <text x="160" y="50" font-size="11" fill="#666">C7（前侧方3-4m, 45°角）平时休眠，异常时自动唤醒，用于ISO码+锁杆+备用识别</text>
       
-      <text x="0" y="75" font-size="11" fill="#333" font-weight="bold">✓ C7三重价值:</text>
-      <text x="110" y="75" font-size="11" fill="#666">① ISO类型码识别（22G1/45R1）② 锁杆状态检测 ③ 侧面污损备用识别</text>
+      <text x="0" y="75" font-size="11" fill="#333" font-weight="bold">✓ 动态触发策略:</text>
+      <text x="120" y="75" font-size="11" fill="#666">C7仅在OCR置信度&lt;95%、夜间、侧面污损时自动触发，延长快门寿命60%</text>
       
-      <text x="0" y="100" font-size="11" fill="#333" font-weight="bold">✓ 成本效益最优:</text>
-      <text x="120" y="100" font-size="11" fill="#666">增量成本仅+1.0万（vs 5相机），识别率从98%→99.2%，ROI 710%，4.4个月回本</text>
+      <text x="0" y="100" font-size="11" fill="#333" font-weight="bold">✓ C7三重价值:</text>
+      <text x="110" y="100" font-size="11" fill="#666">① ISO类型码识别（22G1/45R1）② 锁杆状态检测 ③ 侧面污损备用识别</text>
       
-      <text x="0" y="125" font-size="11" fill="#333" font-weight="bold">✓ 纯视觉无触发:</text>
-      <text x="130" y="125" font-size="11" fill="#666">无需地感线圈/光栅，C5+C6实时视频流检测，AI自动判断最佳拍摄时机</text>
+      <text x="0" y="125" font-size="11" fill="#333" font-weight="bold">✓ 成本效益最优:</text>
+      <text x="120" y="125" font-size="11" fill="#666">增量成本仅+1.0万（vs 5相机），识别率从98%→99.2%，ROI 710%，4.4个月回本</text>
       
-      <text x="0" y="150" font-size="11" fill="#333" font-weight="bold">✓ 两阶段部署:</text>
-      <text x="120" y="150" font-size="11" fill="#666">第一阶段部署5基础相机（98%识别率），第二阶段增配C7（99.2%识别率），平滑升级</text>
+      <text x="0" y="150" font-size="11" fill="#333" font-weight="bold">✓ 纯视觉无触发:</text>
+      <text x="130" y="150" font-size="11" fill="#666">无需地感线圈/光栅，C5+C6实时视频流检测，AI自动判断最佳拍摄时机</text>
+      
+      <text x="0" y="175" font-size="11" fill="#333" font-weight="bold">✓ 两阶段部署:</text>
+      <text x="120" y="175" font-size="11" fill="#666">第一阶段部署5基础相机（98%识别率），第二阶段增配C7（99.2%识别率），平滑升级</text>
     </g>
     
-    <text x="550" y="200" text-anchor="middle" font-size="12" fill="#1d39c4" font-weight="bold">性能指标</text>
-    <text x="550" y="225" text-anchor="middle" font-size="10" fill="#4a5568">
+    <text x="550" y="240" text-anchor="middle" font-size="12" fill="#1d39c4" font-weight="bold">性能指标</text>
+    <text x="550" y="265" text-anchor="middle" font-size="10" fill="#4a5568">
       系统响应时间 ≤ 2秒 | 基础识别率 ≥ 98% | 辅助增强后 ≥ 99.2% | 支持单箱/双箱/歪斜/夜间场景
     </text>
     
-    <text x="550" y="255" text-anchor="middle" font-size="12" fill="#d46b08" font-weight="bold">推荐部署策略</text>
-    <text x="550" y="280" text-anchor="middle" font-size="10" fill="#4a5568">
+    <text x="550" y="295" text-anchor="middle" font-size="12" fill="#d46b08" font-weight="bold">推荐部署策略</text>
+    <text x="550" y="320" text-anchor="middle" font-size="10" fill="#4a5568">
       Phase 1: 部署5基础相机（C5+C6+C3+C4）→ 达到98%识别率快速上线
-    </text>
-    <text x="550" y="300" text-anchor="middle" font-size="10" fill="#4a5568">
-      Phase 2: 增配C7辅助相机 → 提升至99.2%识别率，增加ISO码+锁杆功能
     </text>
   </g>
 </svg>
