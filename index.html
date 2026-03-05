@@ -235,7 +235,7 @@
         <nav class="nav-tabs">
             <div class="nav-tab active" onclick="showSection('mode1')">模式一：侧壁安装</div>
             <div class="nav-tab" onclick="showSection('mode2')">模式二：头尾安装</div>
-            <div class="nav-tab" onclick="showSection('flowchart')">核心处理流程</div>
+            <div class="nav-tab" onclick="showSection('flowchart')">核心处理流程(V4)</div>
             <div class="nav-tab" onclick="showSection('scenario')">三场景对比</div>
             <div class="nav-tab" onclick="showSection('coverage')">视野覆盖与映射</div>
             <div class="nav-tab" onclick="showSection('barrier')">红外光栅栏</div>
@@ -323,39 +323,39 @@
         
         <!-- 核心处理流程 -->
         <section id="flowchart" class="diagram-section hidden">
-            <h2>核心 AI识别处理流程</h2>
-            <p>系统采用 YOLOv5 深度学习模型进行集装箱箱体和角件检测，根据检测到的箱体数量自动判断装载模式（单 20 尺、单 40 尺、双 20 尺），并通过坐标映射和 OCR 技术实现箱号自动识别。全流程响应时间≤2 秒。</p>
+            <h2>核心 AI识别处理流程 V4.0（纯视觉实时检测）</h2>
+            <p>采用纯摄像头实时检测方案，无需地感线圈等物理触发设备。顶部相机持续视频流监控，YOLOv8实时检测车辆位置，DeepSORT持续跟踪，在最佳识别位置智能触发。支持空车/载重判断、集装箱六面拆解分析、按需相机触发、多任务OCR识别（箱号+ISO类型+箱主）。全流程响应时间≤2 秒，准确率≥99.5%。</p>
             <div class="svg-container">
                 <object data="flowchart.svg" type="image/svg+xml" width="100%">
-                    <img src="flowchart.svg" alt="处理流程图" style="width: 100%;">
+                    <img src="flowchart.svg" alt="处理流程图 V4.0" style="width: 100%;">
                 </object>
             </div>
             <div class="info-grid">
                 <div class="info-card">
-                    <h3>🤖 AI 检测模型</h3>
+                    <h3>📹 实时视频检测</h3>
                     <ul>
-                        <li>YOLOv5 目标检测算法</li>
-                        <li>集装箱箱体边界框检测</li>
-                        <li>角点特征识别</li>
-                        <li>箱门朝向判断</li>
+                        <li>顶部相机 25-30 FPS 持续监控</li>
+                        <li>YOLOv8 实时车辆检测 &lt; 50ms</li>
+                        <li>DeepSORT 多目标跟踪</li>
+                        <li>无物理触发设备</li>
                     </ul>
                 </div>
                 <div class="info-card">
-                    <h3>🔧 坐标映射技术</h3>
+                    <h3>🧩 六面拆解分析</h3>
                     <ul>
-                        <li>单应矩阵 H 坐标变换</li>
-                        <li>顶部→侧壁 ROI 映射</li>
-                        <li>预先标定板校准</li>
-                        <li>像素级精度转换</li>
+                        <li>角件定位 3D 位姿估计</li>
+                        <li>判断各面可见性</li>
+                        <li>箱门朝向智能判断</li>
+                        <li>最优拍摄视角选择</li>
                     </ul>
                 </div>
                 <div class="info-card">
-                    <h3>👁️ OCR 识别引擎</h3>
+                    <h3>🎯 多任务识别</h3>
                     <ul>
-                        <li>CRNN+CTC 识别架构</li>
-                        <li>字符级注意力机制</li>
-                        <li>支持污损箱号识别</li>
-                        <li>置信度评分融合</li>
+                        <li>箱号识别（CRNN+Attention）</li>
+                        <li>ISO类型识别（22G1/45R1等）</li>
+                        <li>箱主代码识别（MSC/COS等）</li>
+                        <li>危险品标志检测</li>
                     </ul>
                 </div>
             </div>
