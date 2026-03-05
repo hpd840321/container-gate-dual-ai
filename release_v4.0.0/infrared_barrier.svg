@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 渐变定义 -->
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="emitterGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ee5a5a;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="receiverGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#44a08d;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gateGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="vehicleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="4" flood-opacity="0.25"/>
+    </filter>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff6b6b"/>
+    </marker>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1400" height="900" fill="#f7fafc"/>
+  
+  <!-- 标题栏 -->
+  <g transform="translate(0, 0)">
+    <rect width="1400" height="80" fill="url(#headerGrad)"/>
+    <text x="700" y="35" text-anchor="middle" font-size="24" fill="white" font-weight="bold">
+      红外光栅栏车辆检测系统
+    </text>
+    <text x="700" y="60" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.9)">
+      Infrared Barrier Vehicle Detection System - Multi-Beam Protection
+    </text>
+  </g>
+  
+  <!-- ==================== 主示意图 ==================== -->
+  <g transform="translate(25, 100)">
+    <rect x="0" y="0" width="1350" height="320" rx="12" fill="white" stroke="#e2e8f0" stroke-width="2" filter="url(#shadow)"/>
+    
+    <!-- 标题 -->
+    <text x="675" y="35" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">光栅栏工作原理示意（侧视图）</text>
+    
+    <!-- 地面 -->
+    <line x1="80" y1="280" x2="1270" y2="280" stroke="#4a5568" stroke-width="3"/>
+    <text x="1200" y="300" font-size="12" fill="#666">地面</text>
+    
+    <!-- 车道区域背景 -->
+    <rect x="200" y="100" width="950" height="180" fill="rgba(102,126,234,0.05)" stroke="#667eea" stroke-width="1" stroke-dasharray="5,5"/>
+    <text x="675" y="85" text-anchor="middle" font-size="12" fill="#667eea">车辆检测通道（宽度约 4-6 米）</text>
+    
+    <!-- 红外发射端 -->
+    <g transform="translate(150, 120)">
+      <rect x="0" y="0" width="50" height="140" rx="4" fill="url(#emitterGrad)" filter="url(#shadow)"/>
+      <text x="25" y="75" text-anchor="middle" font-size="11" fill="white" font-weight="bold">发</text>
+      <text x="25" y="95" text-anchor="middle" font-size="11" fill="white" font-weight="bold">射</text>
+      <text x="25" y="115" text-anchor="middle" font-size="11" fill="white" font-weight="bold">端</text>
+      <!-- 发射点 -->
+      <circle cx="50" cy="30" r="6" fill="#ff0000" filter="url(#glow)"/>
+      <circle cx="50" cy="70" r="6" fill="#ff0000" filter="url(#glow)"/>
+      <circle cx="50" cy="110" r="6" fill="#ff0000" filter="url(#glow)"/>
+    </g>
+    
+    <!-- 红外接收端 -->
+    <g transform="translate(1150, 120)">
+      <rect x="0" y="0" width="50" height="140" rx="4" fill="url(#receiverGrad)" filter="url(#shadow)"/>
+      <text x="25" y="75" text-anchor="middle" font-size="11" fill="white" font-weight="bold">接</text>
+      <text x="25" y="95" text-anchor="middle" font-size="11" fill="white" font-weight="bold">收</text>
+      <text x="25" y="115" text-anchor="middle" font-size="11" fill="white" font-weight="bold">端</text>
+      <!-- 接收点 -->
+      <circle cx="0" cy="30" r="6" fill="#00ff00" filter="url(#glow)"/>
+      <circle cx="0" cy="70" r="6" fill="#00ff00" filter="url(#glow)"/>
+      <circle cx="0" cy="110" r="6" fill="#00ff00" filter="url(#glow)"/>
+    </g>
+    
+    <!-- 红外光束 -->
+    <!-- 高位光束（约 1.2m 高度） -->
+    <line x1="200" y1="150" x2="1150" y2="150" stroke="#ff4444" stroke-width="2" stroke-dasharray="8,4" opacity="0.8"/>
+    <text x="180" y="145" font-size="10" fill="#ff4444">光束1</text>
+    <text x="200" y="140" font-size="9" fill="#666">(高位 1.2m)</text>
+    
+    <!-- 中位光束（约 0.8m 高度） -->
+    <line x1="200" y1="190" x2="1150" y2="190" stroke="#ff4444" stroke-width="2" stroke-dasharray="8,4" opacity="0.8"/>
+    <text x="180" y="185" font-size="10" fill="#ff4444">光束2</text>
+    <text x="200" y="205" font-size="9" fill="#666">(中位 0.8m)</text>
+    
+    <!-- 低位光束（约 0.3m 高度） -->
+    <line x1="200" y1="230" x2="1150" y2="230" stroke="#ff4444" stroke-width="2" stroke-dasharray="8,4" opacity="0.8"/>
+    <text x="180" y="225" font-size="10" fill="#ff4444">光束3</text>
+    <text x="200" y="245" font-size="9" fill="#666">(低位 0.3m)</text>
+    
+    <!-- 车辆示意 -->
+    <g transform="translate(550, 155)">
+      <!-- 车身 -->
+      <rect x="0" y="0" width="200" height="90" rx="8" fill="url(#vehicleGrad)" filter="url(#shadow)"/>
+      <!-- 车顶 -->
+      <path d="M 20,0 L 40,-20 L 160,-20 L 180,0 Z" fill="url(#vehicleGrad)"/>
+      <!-- 车窗 -->
+      <rect x="30" y="-15" width="50" height="15" fill="#87ceeb"/>
+      <rect x="120" y="-15" width="50" height="15" fill="#87ceeb"/>
+      <!-- 车轮 -->
+      <circle cx="40" cy="90" r="12" fill="#333"/>
+      <circle cx="160" cy="90" r="12" fill="#333"/>
+      <!-- 遮挡光束示意 -->
+      <line x1="50" y1="-5" x2="150" y2="-5" stroke="#ff0000" stroke-width="3" opacity="0.5"/>
+      <text x="100" y="45" text-anchor="middle" font-size="12" fill="white" font-weight="bold">货 车</text>
+    </g>
+    
+    <!-- 道闸 -->
+    <g transform="translate(950, 80)">
+      <!-- 闸杆立柱 -->
+      <rect x="0" y="0" width="20" height="200" rx="2" fill="#555"/>
+      <!-- 闸杆（抬起状态） -->
+      <rect x="10" y="10" width="120" height="15" rx="3" fill="#ff6b6b" transform="rotate(-30, 10, 17.5)"/>
+      <!-- 状态灯 -->
+      <circle cx="10" cy="-15" r="8" fill="#00ff00" filter="url(#glow)"/>
+      <text x="35" y="-10" font-size="10" fill="#00aa00" font-weight="bold">通行</text>
+    </g>
+    
+    <!-- 光束状态指示 -->
+    <g transform="translate(100, 290)">
+      <rect x="0" y="0" width="300" height="25" rx="4" fill="#f0fff4" stroke="#48bb78" stroke-width="1"/>
+      <circle cx="15" cy="12" r="5" fill="#48bb78"/>
+      <text x="30" y="17" font-size="11" fill="#276749">光束状态：全部被遮挡 → 系统判断"有车"</text>
+    </g>
+    
+    <!-- 箭头指示 -->
+    <g transform="translate(500, 310)">
+      <text x="0" y="0" font-size="12" fill="#667eea" font-weight="bold">车辆驶入方向 →</text>
+    </g>
+  </g>
+  
+  <!-- ==================== 状态对比表 ==================== -->
+  <g transform="translate(25, 440)">
+    <rect x="0" y="0" width="1350" height="430" rx="12" fill="white" stroke="#e2e8f0" stroke-width="2" filter="url(#shadow)"/>
+    
+    <!-- 标题 -->
+    <rect x="0" y="0" width="1350" height="45" rx="12" fill="url(#headerGrad)"/>
+    <text x="675" y="30" text-anchor="middle" font-size="16" fill="white" font-weight="bold">不同场景下的光栅栏检测效果与系统响应</text>
+    
+    <!-- 表头 -->
+    <text x="80" y="75" font-size="12" fill="#333" font-weight="bold">检测场景</text>
+    <text x="280" y="75" font-size="12" fill="#333" font-weight="bold">光束遮挡情况</text>
+    <text x="550" y="75" font-size="12" fill="#333" font-weight="bold">检测效果示意</text>
+    <text x="900" y="75" font-size="12" fill="#333" font-weight="bold">系统响应</text>
+    <text x="1200" y="75" font-size="12" fill="#333" font-weight="bold">安全等级</text>
+    
+    <line x1="30" y1="85" x2="1320" y2="85" stroke="#cbd5e0" stroke-width="2"/>
+    
+    <!-- 行1：无车状态 -->
+    <text x="80" y="120" font-size="11" fill="#333">无车/待机</text>
+    <text x="280" y="120" font-size="11" fill="#48bb78">✓ 所有光束通畅</text>
+    
+    <!-- 光束图示 -->
+    <g transform="translate(500, 105)">
+      <line x1="0" y1="5" x2="60" y2="5" stroke="#48bb78" stroke-width="2"/>
+      <line x1="0" y1="15" x2="60" y2="15" stroke="#48bb78" stroke-width="2"/>
+      <line x1="0" y1="25" x2="60" y2="25" stroke="#48bb78" stroke-width="2"/>
+      <circle cx="65" cy="15" r="4" fill="#48bb78"/>
+    </g>
+    
+    <text x="900" y="120" font-size="11" fill="#666">待机状态，道闸保持关闭</text>
+    <text x="1200" y="120" font-size="11" fill="#48bb78">正常</text>
+    <line x1="30" y1="135" x2="1320" y2="135" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- 行2：车辆进入 -->
+    <text x="80" y="170" font-size="11" fill="#333">车辆进入</text>
+    <text x="280" y="170" font-size="11" fill="#ed8936">◐ 依次遮挡低位→中位→高位</text>
+    
+    <g transform="translate(500, 155)">
+      <line x1="0" y1="5" x2="60" y2="5" stroke="#ed8936" stroke-width="2"/>
+      <line x1="0" y1="15" x2="60" y2="15" stroke="#ed8936" stroke-width="2"/>
+      <line x1="0" y1="25" x2="30" y2="25" stroke="#ed8936" stroke-width="2"/>
+      <line x1="30" y1="22" x2="45" y2="28" stroke="#ff0000" stroke-width="3"/>
+      <rect x="30" y="15" width="30" height="20" fill="#4facfe" opacity="0.7"/>
+    </g>
+    
+    <text x="900" y="170" font-size="11" fill="#ed8936">触发开闸信号，记录入场时间</text>
+    <text x="1200" y="170" font-size="11" fill="#48bb78">正常</text>
+    <line x1="30" y1="185" x2="1320" y2="185" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- 行3：完全通过 -->
+    <text x="80" y="220" font-size="11" fill="#333">车辆完全通过</text>
+    <text x="280" y="220" font-size="11" fill="#48bb78">✓ 所有光束恢复通畅</text>
+    
+    <g transform="translate(500, 205)">
+      <line x1="0" y1="5" x2="60" y2="5" stroke="#48bb78" stroke-width="2"/>
+      <line x1="0" y1="15" x2="60" y2="15" stroke="#48bb78" stroke-width="2"/>
+      <line x1="0" y1="25" x2="60" y2="25" stroke="#48bb78" stroke-width="2"/>
+      <rect x="65" y="10" width="25" height="15" fill="#4facfe" opacity="0.7"/>
+    </g>
+    
+    <text x="900" y="220" font-size="11" fill="#48bb78">延迟 3-5 秒后自动落闸</text>
+    <text x="1200" y="220" font-size="11" fill="#48bb78">正常</text>
+    <line x1="30" y1="235" x2="1320" y2="235" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- 行4：防砸保护（关键） -->
+    <text x="80" y="270" font-size="11" fill="#333" font-weight="bold">防砸保护</text>
+    <text x="280" y="270" font-size="11" fill="#e53e3e">✗ 落闸过程中光束被遮挡</text>
+    
+    <g transform="translate(500, 255)">
+      <line x1="0" y1="5" x2="60" y2="5" stroke="#e53e3e" stroke-width="2"/>
+      <line x1="0" y1="15" x2="30" y2="15" stroke="#e53e3e" stroke-width="2"/>
+      <line x1="0" y1="25" x2="60" y2="25" stroke="#48bb78" stroke-width="2"/>
+      <line x1="30" y1="12" x2="45" y2="18" stroke="#ff0000" stroke-width="3"/>
+      <rect x="25" y="5" width="20" height="15" fill="#e53e3e" opacity="0.7"/>
+      <text x="70" y="20" font-size="10" fill="#e53e3e" font-weight="bold">紧急!</text>
+    </g>
+    
+    <text x="900" y="270" font-size="11" fill="#e53e3e" font-weight="bold">立即停止落闸或自动抬杆</text>
+    <text x="1200" y="270" font-size="11" fill="#e53e3e" font-weight="bold">★ 高</text>
+    <line x1="30" y1="285" x2="1320" y2="285" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- 行5：行人/非机动车 -->
+    <text x="80" y="320" font-size="11" fill="#333">行人/非机动车</text>
+    <text x="280" y="320" font-size="11" fill="#718096">◐ 仅遮挡低位 1-2 束光</text>
+    
+    <g transform="translate(500, 305)">
+      <line x1="0" y1="5" x2="60" y2="5" stroke="#48bb78" stroke-width="2"/>
+      <line x1="0" y1="15" x2="60" y2="15" stroke="#48bb78" stroke-width="2"/>
+      <line x1="0" y1="25" x2="30" y2="25" stroke="#e53e3e" stroke-width="2"/>
+      <line x1="30" y1="25" x2="60" y2="25" stroke="#48bb78" stroke-width="2"/>
+      <circle cx="30" cy="25" r="6" fill="#f6ad55"/>
+    </g>
+    
+    <text x="900" y="320" font-size="11" fill="#718096">可能触发报警或不响应（可配置）</text>
+    <text x="1200" y="320" font-size="11" fill="#ed8936">中</text>
+    <line x1="30" y1="335" x2="1320" y2="335" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- 行6：跟车检测 -->
+    <text x="80" y="370" font-size="11" fill="#333">跟车/尾随</text>
+    <text x="280" y="370" font-size="11" fill="#805ad5">◐ 光束间歇性通断</text>
+    
+    <g transform="translate(500, 355)">
+      <line x1="0" y1="5" x2="60" y2="5" stroke="#805ad5" stroke-width="2" stroke-dasharray="5,3"/>
+      <line x1="0" y1="15" x2="60" y2="15" stroke="#805ad5" stroke-width="2" stroke-dasharray="5,3"/>
+      <line x1="0" y1="25" x2="60" y2="25" stroke="#805ad5" stroke-width="2" stroke-dasharray="5,3"/>
+    </g>
+    
+    <text x="900" y="370" font-size="11" fill="#805ad5">保持闸杆开启直到完全无车</text>
+    <text x="1200" y="370" font-size="11" fill="#48bb78">高</text>
+    <line x1="30" y1="385" x2="1320" y2="385" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- 底部说明 -->
+    <text x="675" y="415" text-anchor="middle" font-size="11" fill="#4a5568">
+      💡 优势：比地感线圈更灵敏，可检测悬空障碍物；支持多光束独立判断，适应不同车型
+    </text>
+  </g>
+</svg>
